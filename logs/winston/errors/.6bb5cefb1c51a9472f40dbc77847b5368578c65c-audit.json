@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/.6bb5cefb1c51a9472f40dbc77847b5368578c65c-audit.json",
+    "files": [
+        {
+            "date": 1694317336393,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-10-09-09-error.log",
+            "hash": "9acd69e2bf77e9add4774c5feea7e30ea13d8e2282f76bb6168d624deacb4e8c"
+        }
+    ],
+    "hashType": "sha256"
+}
