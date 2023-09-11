@@ -1,0 +1,253 @@
+Mon Sep 11 2023 12:38:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1999,
+          title: "Autumn",
+          code: "z-u",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:39:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1999,
+          title: "Autumn",
+          code: "z-u",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:40:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "z-u",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:41:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:42:36 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:42:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:42:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:42:54 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:43:1 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:43:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.
+Mon Sep 11 2023 12:43:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:8:48
+
+  5 const insertIntoDb = async (
+  6   academicSemesterData: AcademicSemester
+  7 ): Promise<AcademicSemester> => {
+→ 8   const result = await prisma.academicSemester.create({
+        data: {
+          year: 1099,
+          title: "Autumn",
+          code: "01",
+          startMonth: "January",
+          endMonth: "February",
+      +   academicFaculty: {
+      +     create: AcademicFacultyCreateWithoutAcademicSemesterInput | AcademicFacultyUncheckedCreateWithoutAcademicSemesterInput,
+      +     connectOrCreate: AcademicFacultyCreateOrConnectWithoutAcademicSemesterInput,
+      +     connect: AcademicFacultyWhereUniqueInput
+      +   }
+        }
+      })
+
+Argument `academicFaculty` is missing.

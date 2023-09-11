@@ -9,6 +9,16 @@
             "date": 1694317336393,
             "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-10-09-09-error.log",
             "hash": "9acd69e2bf77e9add4774c5feea7e30ea13d8e2282f76bb6168d624deacb4e8c"
+        },
+        {
+            "date": 1694413181256,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-11-09-12-error.log",
+            "hash": "883f9f279b61de1b7b384bf7e939156f2a26e040365d5c6030d22338384ad48e"
+        },
+        {
+            "date": 1694417964696,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-11-09-13-error.log",
+            "hash": "633aa4290f97368196a78c553299f16a0b3a3721ae9b364cdae5818c6a81a97a"
         }
     ],
     "hashType": "sha256"
