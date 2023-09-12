@@ -1,0 +1,14 @@
+Tue Sep 12 2023 9:13:12 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.findMany()` invocation in
+/home/maruf/PostgreSql/core_service/university-management-core-service-starter/src/app/modules/academicSemester/academicSemester.service.ts:49:48
+
+  46 }
+  47 const whereConditions: Prisma.AcademicSemesterWhereInput =
+  48   andConditions.length > 0 ? { AND: andConditions } : {};
+→ 49 const result = await prisma.academicSemester.findMany({
+       where: {},
+       skip: NaN,
+     + take: Int
+     })
+
+Argument `take` is missing.

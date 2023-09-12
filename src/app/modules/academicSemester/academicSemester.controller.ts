@@ -17,7 +17,12 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
 });
 const getAllFromDb = catchAsync(async (req: Request, res: Response) => {
   // console.log(req.query);
-  const filters = pick(req.query, ['searchTerm', 'code', 'year']);
+  const filters = pick(req.query, [
+    'searchTerm',
+    'code',
+    'startMonth',
+    'endMonth',
+  ]);
   const options = pick(req.query, ['limit', 'page', 'sortBy', 'sortOrder']);
 
   const result = await AcademicSemesterService.getAllFromDb(filters, options);
