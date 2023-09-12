@@ -1,0 +1,75 @@
+Tue Sep 12 2023 15:12:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicSemester.create()` invocation:
+
+{
+  data: {
+    title: "Mr. Wahed",
++   year: Int
+  }
+}
+
+Argument `year` is missing.
+Tue Sep 12 2023 15:20:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicFaculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "wahed",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "wahed",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 5,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
+Tue Sep 12 2023 15:20:54 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicFaculty.findMany()` invocation:
+
+{
+  where: {
+    AND: [
+      {
+        OR: [
+          {
+            searchTerm: {
+              contains: "wahed",
+              mode: "insensitive"
+            }
+          },
+          {
+            title: {
+              contains: "wahed",
+              mode: "insensitive"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  skip: 0,
+  take: 5,
+  orderBy: {
+    createdAt: "desc"
+  }
+}
+
+Unknown argument `searchTerm`. Available options are listed in green.
