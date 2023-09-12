@@ -80,7 +80,7 @@ model Student {
 
 model Faculty {
   id           String   @id @default(uuid())
-  studentId    String
+  facultyId    String
   firstName    String
   middleName   String
   lastName     String
