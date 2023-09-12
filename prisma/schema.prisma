@@ -16,14 +16,14 @@ model User {
 }
 
 model AcademicSemester {
-  id                String          @id @default(uuid())
-  year              Int
-  title             String
-  code              String
-  startMonth        String
-  endMonth          String
-  createdAt         DateTime        @default(now())
-  updatedAt         DateTime        @updatedAt
+  id         String   @id @default(uuid())
+  year       Int
+  title      String
+  code       String
+  startMonth String
+  endMonth   String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
   // academicFaculty   AcademicFaculty @relation(fields: [academicFacultyId], references: [id])
   // academicFacultyId String
   // Student           Student[]
@@ -32,22 +32,22 @@ model AcademicSemester {
 }
 
 model AcademicFaculty {
-  id               String             @id @default(uuid())
-  title            String
-  createdAt        DateTime           @default(now())
-  updatedAt        DateTime           @updatedAt
+  id        String   @id @default(uuid())
+  title     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   // AcademicSemester AcademicSemester[]
-  Faculty          Faculty[]
-  Student          Student[]
+  // Faculty          Faculty[]
+  // Student          Student[]
 
   @@map("academic_faculty")
 }
 
 model AcademicDepartment {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   title     String
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
   // academicFacultyId String   @relation(fields: [id], references: [academicFaculty])
   // Faculty   Faculty[]
   // Student   Student[]
@@ -56,46 +56,46 @@ model AcademicDepartment {
 }
 
 model Student {
-  id                   String             @id @default(uuid())
-  studentId            String
-  firstName            String
-  middleName           String
-  lastName             String
-  profileImage         String
-  email                String
-  contactNo            String
-  gender               String
-  bloodGroup           String
-  createdAt            DateTime           @default(now())
-  updatedAt            DateTime           @updatedAt
+  id           String   @id @default(uuid())
+  studentId    String
+  firstName    String
+  middleName   String
+  lastName     String
+  profileImage String
+  email        String
+  contactNo    String
+  gender       String
+  bloodGroup   String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
   // academicSemester     AcademicSemester   @relation(fields: [academicSemesterId], references: [id])
   // academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
-  academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
-  academicSemesterId   String
-  academicDepartmentId String
-  academicFacultyId    String
+  // academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
+  // academicSemesterId   String
+  // academicDepartmentId String
+  // academicFacultyId    String
 
   @@map("students")
 }
 
 model Faculty {
-  id                   String             @id @default(uuid())
-  studentId            String
-  firstName            String
-  middleName           String
-  lastName             String
-  profileImage         String
-  email                String
-  contactNo            String
-  gender               String
-  bloodGroup           String
-  designation          String
-  createdAt            DateTime           @default(now())
-  updatedAt            DateTime           @updatedAt
+  id           String   @id @default(uuid())
+  studentId    String
+  firstName    String
+  middleName   String
+  lastName     String
+  profileImage String
+  email        String
+  contactNo    String
+  gender       String
+  bloodGroup   String
+  designation  String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
   // academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
-  academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
-  academicDepartmentId String
-  academicFacultyId    String
+  // academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
+  // academicDepartmentId String
+  // academicFacultyId    String
 
   @@map("faculties")
 }

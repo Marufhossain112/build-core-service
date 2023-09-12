@@ -1,0 +1,19 @@
+Tue Sep 12 2023 22:58:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+{
+  data: {
+    studentId: "01",
+    firstName: "Maruf",
+    middleName: "Ahmed",
+    lastName: "Hossain",
+    profileImage: "profile.img",
+    email: "maruf@gmail.com",
+    contactNo: "01314804152",
+    gender: "male",
+    bloodGroup: "A+",
++   academicSemesterId: String
+  }
+}
+
+Argument `academicSemesterId` is missing.
