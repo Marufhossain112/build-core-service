@@ -8,4 +8,5 @@ router.post(
   validateRequest(AcademicSemesterValidation.create),
   AcademicSemesterController.insertIntoDb
 );
+router.get('/', AcademicSemesterController.getAllFromDb);
 export const AcademicSemesterRoutes = router;
