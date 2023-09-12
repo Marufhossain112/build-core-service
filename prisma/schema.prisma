@@ -49,8 +49,8 @@ model AcademicDepartment {
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   // academicFacultyId String   @relation(fields: [id], references: [academicFaculty])
-  Faculty   Faculty[]
-  Student   Student[]
+  // Faculty   Faculty[]
+  // Student   Student[]
 
   @@map("academic_departments")
 }
@@ -69,7 +69,7 @@ model Student {
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
   // academicSemester     AcademicSemester   @relation(fields: [academicSemesterId], references: [id])
-  academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
+  // academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
   academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
   academicSemesterId   String
   academicDepartmentId String
@@ -92,7 +92,7 @@ model Faculty {
   designation          String
   createdAt            DateTime           @default(now())
   updatedAt            DateTime           @updatedAt
-  academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
+  // academicDepartment   AcademicDepartment @relation(fields: [academicDepartmentId], references: [id])
   academicFaculty      AcademicFaculty    @relation(fields: [academicFacultyId], references: [id])
   academicDepartmentId String
   academicFacultyId    String

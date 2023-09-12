@@ -73,3 +73,54 @@ Invalid `prisma.academicFaculty.findMany()` invocation:
 }
 
 Unknown argument `searchTerm`. Available options are listed in green.
+Tue Sep 12 2023 15:43:18 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of C++",
+    academicFacultyId: "b1205f1e-7f22-4659-a65b-9bba436c8876",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   Faculty?: FacultyCreateNestedManyWithoutAcademicDepartmentInput,
+?   Student?: StudentCreateNestedManyWithoutAcademicDepartmentInput
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
+Tue Sep 12 2023 15:47:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of C++",
+    academicFacultyId: "b1205f1e-7f22-4659-a65b-9bba436c8876",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   Faculty?: FacultyCreateNestedManyWithoutAcademicDepartmentInput,
+?   Student?: StudentCreateNestedManyWithoutAcademicDepartmentInput
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
+Tue Sep 12 2023 15:47:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of C++",
+    academicFacultyId: "b1205f1e-7f22-4659-a65b-9bba436c8876",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   Faculty?: FacultyCreateNestedManyWithoutAcademicDepartmentInput,
+?   Student?: StudentCreateNestedManyWithoutAcademicDepartmentInput
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
