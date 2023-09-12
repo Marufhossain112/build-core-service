@@ -4,3 +4,15 @@ export const AcademicSemesterSearchableFields = [
   'startMonth',
   'endMonth',
 ];
+export const AcademicSemesterFilterableFields = [
+  'searchTerm',
+  'code',
+  'startMonth',
+  'endMonth',
+];
+export const AcademicSemesterPaginationFields = [
+  'limit',
+  'page',
+  'sortBy',
+  'sortOrder',
+];
