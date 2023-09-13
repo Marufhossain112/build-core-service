@@ -51,6 +51,7 @@ const getAllFromDb = async (
     andConditions.length > 0 ? { AND: andConditions } : {};
   const { sortBy, sortOrder } = options;
   const result = await prisma.academicDepartment.findMany({
+    include: { academicFaculty: true },
     where: whereConditions,
     skip,
     take: limit,

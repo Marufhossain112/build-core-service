@@ -9,6 +9,11 @@ import { StudentSearchableFields } from './student.constrants';
 const insertIntoDb = async (StudentData: Student): Promise<Student> => {
   const result = await prisma.student.create({
     data: StudentData,
+    include: {
+      academicSemester: true,
+      academicDepartment: true,
+      academicFaculty: true,
+    },
   });
   return result;
 };
@@ -48,6 +53,11 @@ const getAllFromDb = async (
     andConditions.length > 0 ? { AND: andConditions } : {};
   const { sortBy, sortOrder } = options;
   const result = await prisma.student.findMany({
+    include: {
+      academicSemester: true,
+      academicDepartment: true,
+      academicFaculty: true,
+    },
     where: whereConditions,
     skip,
     take: limit,

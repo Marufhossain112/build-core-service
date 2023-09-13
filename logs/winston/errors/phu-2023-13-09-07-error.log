@@ -1,0 +1,54 @@
+Wed Sep 13 2023 7:22:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicFacultyId"
+    ],
+    "message": "AcademicFacultyId is required."
+  }
+]
+Wed Sep 13 2023 7:23:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of Rails",
+    academicFacultyId: "08cb8abf-a6ed-4a88-899f-7538c3fba28e",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
+Wed Sep 13 2023 7:25:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicFacultyId"
+    ],
+    "message": "AcademicFacultyId is required."
+  }
+]
+Wed Sep 13 2023 7:56:15 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of Rails",
+    academicFacultyId: "57abb0d1-5e57-46a7-8a60-8eadd2ca2696",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.

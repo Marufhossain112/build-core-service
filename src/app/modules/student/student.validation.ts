@@ -28,6 +28,15 @@ const create = z.object({
     bloodGroup: z.string({
       required_error: 'bloodGroup is required.',
     }),
+    academicSemesterId: z.string({
+      required_error: 'academicSemesterId is required.',
+    }),
+    academicDepartmentId: z.string({
+      required_error: 'academicDepartmentId is required.',
+    }),
+    academicFacultyId: z.string({
+      required_error: 'academicFacultyId is required.',
+    }),
   }),
 });
 export const StudentValidation = {

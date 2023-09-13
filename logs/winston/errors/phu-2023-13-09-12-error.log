@@ -1,0 +1,15 @@
+Wed Sep 13 2023 12:51:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of Ganja",
+    academicFacultyId: "57abb0d1-5e57-46a7-8a60-8eadd2ca2696",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.

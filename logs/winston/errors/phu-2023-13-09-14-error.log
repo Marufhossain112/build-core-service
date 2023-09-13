@@ -1,0 +1,32 @@
+Wed Sep 13 2023 14:14:59 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicSemesterId"
+    ],
+    "message": "academicSemesterId is required."
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicDepartmentId"
+    ],
+    "message": "academicDepartmentId is required."
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "academicFacultyId"
+    ],
+    "message": "academicFacultyId is required."
+  }
+]

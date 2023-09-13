@@ -1,0 +1,35 @@
+Wed Sep 13 2023 13:34:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of Fuchka",
+    academicFacultyId: "911d7d6f-b658-4644-89db-4554a6062d12",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
+Wed Sep 13 2023 13:40:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+{
+  data: {
+    title: "Department of Fuchka",
+    academicFacultyId: "423c88e9-a38c-473e-9840-288d532efa9e",
+    ~~~~~~~~~~~~~~~~~
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime
+  }
+}
+
+Unknown argument `academicFacultyId`. Available options are listed in green.
+Wed Sep 13 2023 13:46:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.academicDepartment.create()` invocation:
+
+
+Foreign key constraint failed on the field: `academic_departments_academicFacultyId_fkey (index)`
