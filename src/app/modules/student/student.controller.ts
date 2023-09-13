@@ -40,8 +40,18 @@ const getDataById = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const updateToDb = catchAsync(async (req: Request, res: Response) => {
+  const result = await StudentService.updateToDb(req.params.id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Student data updated successfully.',
+    data: result,
+  });
+});
 export const StudentController = {
   insertIntoDb,
   getAllFromDb,
   getDataById,
+  updateToDb,
 };

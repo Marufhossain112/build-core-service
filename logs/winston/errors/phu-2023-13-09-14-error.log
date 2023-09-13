@@ -30,3 +30,61 @@ Wed Sep 13 2023 14:14:59 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
     "message": "academicFacultyId is required."
   }
 ]
+Wed Sep 13 2023 14:39:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.update()` invocation:
+
+{
+  where: {
+    id: "0da5fc17-3d8e-43b9-a149-3c0ff08488fb"
+  },
+  data: {
+    studentId: "007",
+    firstName: "Nokib",
+    middleName: "Bin",
+    lastName: "Rahman",
+    profileImage: "profile.img2",
+    email: "nokib@gmail.com",
+    status: "married",
+    ~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   contactNo?: String | StringFieldUpdateOperationsInput,
+?   gender?: String | StringFieldUpdateOperationsInput,
+?   bloodGroup?: String | StringFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   academicSemester?: AcademicSemesterUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicDepartment?: AcademicDepartmentUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicFaculty?: AcademicFacultyUpdateOneRequiredWithoutStudentsNestedInput
+  }
+}
+
+Unknown argument `status`. Available options are listed in green.
+Wed Sep 13 2023 14:42:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.update()` invocation:
+
+{
+  where: {
+    id: "0da5fc17-3d8e-43b9-a149-3c0ff08488fb"
+  },
+  data: {
+    studentId: "007",
+    firstName: "Nokib",
+    middleName: "Bin",
+    lastName: "Rahman",
+    profileImage: "profile.img2",
+    email: "nokib@gmail.com",
+    status: "married",
+    ~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   contactNo?: String | StringFieldUpdateOperationsInput,
+?   gender?: String | StringFieldUpdateOperationsInput,
+?   bloodGroup?: String | StringFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   academicSemester?: AcademicSemesterUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicDepartment?: AcademicDepartmentUpdateOneRequiredWithoutStudentsNestedInput,
+?   academicFaculty?: AcademicFacultyUpdateOneRequiredWithoutStudentsNestedInput
+  }
+}
+
+Unknown argument `status`. Available options are listed in green.
