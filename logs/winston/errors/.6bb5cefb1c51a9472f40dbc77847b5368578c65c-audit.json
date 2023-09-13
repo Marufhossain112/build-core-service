@@ -114,6 +114,11 @@
             "date": 1694592258775,
             "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-13-09-14-error.log",
             "hash": "06114419ffad1324f7fc11a2bc07bab1878b7d730191ea2dfa130e951a003bed"
+        },
+        {
+            "date": 1694595611571,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-13-09-15-error.log",
+            "hash": "e61d3ca2fdfe14d179d5e933edfd02c92ade8b523d785edec7818e8b828b529a"
         }
     ],
     "hashType": "sha256"
