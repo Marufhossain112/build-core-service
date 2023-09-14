@@ -1,0 +1,46 @@
+Thu Sep 14 2023 13:45:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "title"
+    ],
+    "message": "title is required"
+  }
+]
+Thu Sep 14 2023 13:47:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Unexpected token t in JSON at position 4
+Thu Sep 14 2023 13:47:29 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "title"
+    ],
+    "message": "title is required"
+  }
+]
+Thu Sep 14 2023 13:50:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "title"
+    ],
+    "message": "title is required"
+  }
+]
+Thu Sep 14 2023 13:54:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Unexpected token ' in JSON at position 4
+Thu Sep 14 2023 13:55:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "title"
+    ],
+    "message": "title is required"
+  }
+]
