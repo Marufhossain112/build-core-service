@@ -1,0 +1,28 @@
+Thu Sep 14 2023 17:17:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.building.findMany()` invocation:
+
+{
+  where: {},
+  skip: 0,
+  take: 3,
+  orderBy: {
+    title: "title"
+           ~~~~~~~
+  }
+}
+
+Invalid value for argument `title`. Expected SortOrder.
+Thu Sep 14 2023 17:18:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.building.findMany()` invocation:
+
+{
+  where: {},
+  skip: 0,
+  take: 3,
+  orderBy: {
+    title: "title"
+           ~~~~~~~
+  }
+}
+
+Invalid value for argument `title`. Expected SortOrder.
