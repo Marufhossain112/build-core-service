@@ -5,12 +5,54 @@ import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { ICourseFilterableFields } from './course.interface';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CourseSearchableFields } from './course.constants';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
 
-const insertIntoDb = async (data: Course) => {
-  const result = await prisma.course.create({
-    data,
+const insertIntoDb = async (data: any) => {
+  const { prerequisiteCourses, ...courseData } = data;
+  const newCourse = await prisma.$transaction(async transanctionClient => {
+    const result = await transanctionClient.course.create({
+      data: courseData,
+    });
+    if (!result) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Course not created.');
+    }
+    if (prerequisiteCourses && prerequisiteCourses.length > 0) {
+      for (let index = 0; index < prerequisiteCourses.length; index++) {
+        const createPrerequisite =
+          await transanctionClient.courseToPrerequisite.create({
+            data: {
+              courseId: result.id,
+              prerequisiteId: prerequisiteCourses[index].courseId,
+            },
+          });
+        console.log(createPrerequisite);
+      }
+    }
+    return result;
   });
-  return result;
+  // return newCourse;
+  if (newCourse) {
+    const responseData = await prisma.course.findUnique({
+      where: {
+        id: newCourse.id,
+      },
+      include: {
+        prerequisite: {
+          include: {
+            prerequisite: true,
+          },
+        },
+        prerequisiteFor: {
+          include: {
+            prerequisite: true,
+          },
+        },
+      },
+    });
+    return responseData;
+  }
+  throw new ApiError(httpStatus.BAD_REQUEST, 'Course not created.');
 };
 const getAllCourses = async (
   filters: ICourseFilterableFields,

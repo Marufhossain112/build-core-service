@@ -1,0 +1,59 @@
+Fri Sep 15 2023 15:23:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.create()` invocation:
+
+{
+  data: {
+    title: "Programming Hero Batch 12",
+    code: "002AD",
+    credits: "34",
+    prerequisiteCourses: [
+    ~~~~~~~~~~~~~~~~~~~
+      {
+        courseId: "5dae1cff-377f-4e32-852e-fe578450df5b"
+      },
+      {
+        courseId: "77c7e64d-679a-46aa-ae34-dd41a96efe0d"
+      }
+    ],
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   CourseToPrerequisite?: CourseToPrerequisiteCreateNestedManyWithoutCourseInput,
+?   PrerequisiteToCourse?: CourseToPrerequisiteCreateNestedManyWithoutPrerequisiteInput
+  }
+}
+
+Unknown argument `prerequisiteCourses`. Available options are listed in green.
+Fri Sep 15 2023 15:25:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.create()` invocation:
+
+{
+  data: {
+    title: "Programming Hero Batch 13",
+    code: "002AD",
+    credits: "34",
+    prerequisiteCourses: [
+    ~~~~~~~~~~~~~~~~~~~
+      {
+        courseId: "5dae1cff-377f-4e32-852e-fe578450df5b"
+      }
+    ],
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   CourseToPrerequisite?: CourseToPrerequisiteCreateNestedManyWithoutCourseInput,
+?   PrerequisiteToCourse?: CourseToPrerequisiteCreateNestedManyWithoutPrerequisiteInput
+  }
+}
+
+Unknown argument `prerequisiteCourses`. Available options are listed in green.
+Fri Sep 15 2023 15:26:48 } [PH] error: 
+Invalid `prisma.courseToPrerequisite.create()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.
+Fri Sep 15 2023 15:27:20 } [PH] error: 
+Invalid `prisma.courseToPrerequisite.create()` invocation:
+
+
+Transaction API error: Transaction already closed: Could not perform operation.

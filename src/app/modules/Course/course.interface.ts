@@ -4,3 +4,11 @@ export type ICourseFilterableFields = {
   code?: string;
   credits?: string;
 };
+export type ICourseCreateData = {
+  title: string;
+  course: string;
+  credits: string;
+  prerequisiteCourses: {
+    courseId: string;
+  }[];
+};
