@@ -2,13 +2,13 @@ import { Course, Prisma } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { ICourseFilterableFields } from './course.interface';
+import { ICourseCreateData, ICourseFilterableFields } from './course.interface';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CourseSearchableFields } from './course.constants';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 
-const insertIntoDb = async (data: any) => {
+const insertIntoDb = async (data: any): Promise<any> => {
   const { prerequisiteCourses, ...courseData } = data;
   const newCourse = await prisma.$transaction(async transanctionClient => {
     const result = await transanctionClient.course.create({
@@ -53,6 +53,17 @@ const insertIntoDb = async (data: any) => {
     return responseData;
   }
   throw new ApiError(httpStatus.BAD_REQUEST, 'Course not created.');
+};
+const updateOneInDb = async (
+  id: string,
+  payload: ICourseCreateData
+): Promise<Course | null> => {
+  const { ...courseData } = payload;
+  const result = await prisma.course.update({
+    where: { id },
+    data: courseData,
+  });
+  return result;
 };
 const getAllCourses = async (
   filters: ICourseFilterableFields,
@@ -100,4 +111,5 @@ const getAllCourses = async (
 export const CourseService = {
   insertIntoDb,
   getAllCourses,
+  updateOneInDb,
 };

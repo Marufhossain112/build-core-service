@@ -1,0 +1,22 @@
+Sat Sep 16 2023 3:54:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.update()` invocation:
+
+{
+  where: {
+    id: "1df28dbd-286c-4f1f-a135-59c3f6b74008"
+  },
+  data: {
+    Hello: "Programming Hero BAtch 20 Hello",
+    ~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   title?: String | StringFieldUpdateOperationsInput,
+?   code?: String | StringFieldUpdateOperationsInput,
+?   credits?: String | StringFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   prerequisite?: CourseToPrerequisiteUpdateManyWithoutCourseNestedInput,
+?   prerequisiteFor?: CourseToPrerequisiteUpdateManyWithoutPrerequisiteNestedInput
+  }
+}
+
+Unknown argument `Hello`. Available options are listed in green.

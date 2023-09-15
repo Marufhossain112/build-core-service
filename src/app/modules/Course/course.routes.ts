@@ -5,8 +5,13 @@ import { CourseValidation } from './course.validation';
 const router = express.Router();
 router.post(
   '/',
-  validateRequest(CourseValidation.courseZodValidation),
+  validateRequest(CourseValidation.courseCreateValidation),
   CourseController.insertIntoDb
+);
+router.patch(
+  '/:id',
+  validateRequest(CourseValidation.courseUpdateValidation),
+  CourseController.updateOneInDb
 );
 router.get('/', CourseController.getAllCourses);
 export const CourseRoutes = router;
