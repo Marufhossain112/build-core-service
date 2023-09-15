@@ -1,0 +1,23 @@
+Fri Sep 15 2023 5:49:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.create()` invocation:
+
+{
+  data: {
+    title: "Programming Hero Batch 9",
+    code: "002AD",
+    credits: "34",
+    prerequisiteCourses: [
+    ~~~~~~~~~~~~~~~~~~~
+      {
+        courseId: "5dae1cff-377f-4e32-852e-fe578450df5b"
+      }
+    ],
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   CourseToPrerequisite?: CourseToPrerequisiteCreateNestedManyWithoutCourseInput,
+?   PrerequisiteToCourse?: CourseToPrerequisiteCreateNestedManyWithoutPrerequisiteInput
+  }
+}
+
+Unknown argument `prerequisiteCourses`. Available options are listed in green.
