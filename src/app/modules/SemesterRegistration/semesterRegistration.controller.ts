@@ -12,6 +12,17 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const updateToDb = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await semesterRegistrationService.updateToDb(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester registration updated successfully.',
+    data: result,
+  });
+});
 export const semesterRegistrationController = {
   insertIntoDb,
+  updateToDb,
 };

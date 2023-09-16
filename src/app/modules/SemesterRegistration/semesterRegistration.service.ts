@@ -33,6 +33,20 @@ const insertIntoDb = async (
   });
   return result;
 };
+const updateToDb = async (
+  id: string,
+  payload: Partial<SemesterRegistration>
+) => {
+  const result = await prisma.semesterRegistration.update({
+    where: { id },
+    data: payload,
+    include: {
+      academicSemester: true,
+    },
+  });
+  return result;
+};
 export const semesterRegistrationService = {
   insertIntoDb,
+  updateToDb,
 };
