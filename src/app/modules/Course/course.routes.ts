@@ -13,7 +13,15 @@ router.patch(
   validateRequest(CourseValidation.courseUpdateValidation),
   CourseController.updateOneInDb
 );
-router.post('/:id/assign-faculties', CourseController.assignFaculties);
-router.delete('/:id/remove-faculties', CourseController.removeFaculties);
+router.post(
+  '/:id/assign-faculties',
+  validateRequest(CourseValidation.assignOrRemoveFacultiesValidation),
+  CourseController.assignFaculties
+);
+router.delete(
+  '/:id/remove-faculties',
+  validateRequest(CourseValidation.assignOrRemoveFacultiesValidation),
+  CourseController.removeFaculties
+);
 router.get('/', CourseController.getAllCourses);
 export const CourseRoutes = router;

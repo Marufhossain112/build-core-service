@@ -1,0 +1,46 @@
+Sat Sep 16 2023 20:14:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'map')
+Sat Sep 16 2023 20:14:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseFaculty.createMany()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`facultyId`)
+Sat Sep 16 2023 20:19:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'map')
+Sat Sep 16 2023 20:21:56 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'map')
+Sat Sep 16 2023 20:25:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'map')
+Sat Sep 16 2023 20:26:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "courses"
+    ],
+    "message": "Courses is required."
+  }
+]
+Sat Sep 16 2023 20:27:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "faculties"
+    ],
+    "message": "Faculties is required."
+  }
+]
+Sat Sep 16 2023 20:30:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Cannot read properties of undefined (reading 'map')
+Sat Sep 16 2023 20:32:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "courses"
+    ],
+    "message": "Courses is required."
+  }
+]
