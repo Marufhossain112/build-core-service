@@ -1,0 +1,27 @@
+Sun Sep 17 2023 5:52:16 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.update()` invocation:
+
+{
+  where: {
+    id: "c5a9ef86-de34-4689-887e-38987b07855f"
+  },
+  data: {
+    minCredit: 50,
+    statuers: "ONGOING",
+    ~~~~~~~~
+?   id?: String | StringFieldUpdateOperationsInput,
+?   startDate?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   endDate?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   status?: SemesterRegistrationStatus | NullableEnumSemesterRegistrationStatusFieldUpdateOperationsInput | Null,
+?   maxCredit?: Int | IntFieldUpdateOperationsInput,
+?   createdAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   updatedAt?: DateTime | DateTimeFieldUpdateOperationsInput,
+?   academicSemester?: AcademicSemesterUpdateOneRequiredWithoutSemesterRegistrationsNestedInput
+  },
+  include: {
+    academicSemester: true
+  }
+}
+
+Unknown argument `statuers`. Did you mean `status`? Available options are listed in green.
+Sun Sep 17 2023 5:52:33 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Can only move from ongoing to ended.
