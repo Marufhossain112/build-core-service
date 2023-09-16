@@ -13,3 +13,4 @@ Invalid `prisma.semesterRegistration.create()` invocation:
 }
 
 Invalid value for argument `startDate`: premature end of input. Expected ISO-8601 DateTime.
+Sat Sep 16 2023 22:47:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Already and UPCOMING registration.
