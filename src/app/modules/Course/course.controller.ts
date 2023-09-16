@@ -40,8 +40,19 @@ const updateOneInDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const assignFaculties = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await CourseService.assignFaculties(id, req.body.faculties);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Assigned faculties successfully.',
+    data: result,
+  });
+});
 export const CourseController = {
   insertIntoDb,
   getAllCourses,
   updateOneInDb,
+  assignFaculties,
 };

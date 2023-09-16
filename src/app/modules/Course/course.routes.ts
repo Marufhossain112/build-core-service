@@ -13,5 +13,6 @@ router.patch(
   validateRequest(CourseValidation.courseUpdateValidation),
   CourseController.updateOneInDb
 );
+router.post('/:id/assign-faculties', CourseController.assignFaculties);
 router.get('/', CourseController.getAllCourses);
 export const CourseRoutes = router;
