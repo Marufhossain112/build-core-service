@@ -10,5 +10,7 @@ router.post(
   FacultyController.insertIntoDb
 );
 router.get('/:id', FacultyController.getDataById);
+router.post('/:id/assign-courses', FacultyController.assignCourses);
+router.delete('/:id/remove-courses', FacultyController.removeCourses);
 router.get('/', FacultyController.getAllFromDb);
 export const FacultyRoutes = router;
