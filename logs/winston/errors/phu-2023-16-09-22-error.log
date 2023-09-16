@@ -1,0 +1,15 @@
+Sat Sep 16 2023 22:18:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+{
+  data: {
+    startDate: "",
+               ~~
+    endDate: "",
+    minCredit: 34,
+    maxCredit: 40,
+    academicSemesterId: "5e29eb70-2630-4944-bfe3-33ea9a1ddf57"
+  }
+}
+
+Invalid value for argument `startDate`: premature end of input. Expected ISO-8601 DateTime.

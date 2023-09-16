@@ -259,6 +259,11 @@
             "date": 1694878854407,
             "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/successes/phu-2023-16-09-21-success.log",
             "hash": "9d8b867261a8ce734f3903024e50c4d70812a7fe9dd0ecdbecdf7c5bbb7caa83"
+        },
+        {
+            "date": 1694880850090,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/successes/phu-2023-16-09-22-success.log",
+            "hash": "3e96806e2c34a3dc01be1120fc119725bfc34ba1b39e754488bf4948ee27728e"
         }
     ],
     "hashType": "sha256"
