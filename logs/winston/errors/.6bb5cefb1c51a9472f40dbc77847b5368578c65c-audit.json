@@ -209,6 +209,26 @@
             "date": 1694813172592,
             "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-16-09-03-error.log",
             "hash": "d543f30c21b06deff56a90c27bcf1e8aafe4a4268209adef33cd2a4b65066103"
+        },
+        {
+            "date": 1694815208644,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-16-09-04-error.log",
+            "hash": "8b6da77c125c89680a202782e1017eb74faa24472104bc4d5d030e451dc15a05"
+        },
+        {
+            "date": 1694829310006,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-16-09-07-error.log",
+            "hash": "010624fa434251e76f2c08e045fb39ffb169fb8e488a6a2f78401fe2bf8abf86"
+        },
+        {
+            "date": 1694829601210,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-16-09-08-error.log",
+            "hash": "85efb64354f6ef224276044e3506a81e641f88ea65bccfc0dc9ebb4212bed6e4"
+        },
+        {
+            "date": 1694841453153,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/errors/phu-2023-16-09-11-error.log",
+            "hash": "ad92a61b765bcfdfdb9c18dcda69050d141e1dd5e326bb8a72eef8c40e1c71c3"
         }
     ],
     "hashType": "sha256"

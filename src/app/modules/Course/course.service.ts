@@ -57,13 +57,71 @@ const insertIntoDb = async (data: any): Promise<any> => {
 const updateOneInDb = async (
   id: string,
   payload: ICourseCreateData
-): Promise<Course | null> => {
-  const { ...courseData } = payload;
-  const result = await prisma.course.update({
-    where: { id },
-    data: courseData,
+) /* : Promise<Course | null> */ => {
+  const { prerequisiteCourses, ...courseData } = payload;
+  await prisma.$transaction(async transanctionClient => {
+    const result = await transanctionClient.course.update({
+      where: { id },
+      data: courseData,
+    });
+    if (!result) {
+      throw new ApiError(httpStatus.BAD_REQUEST, 'Unable to update');
+    }
+    if (prerequisiteCourses && prerequisiteCourses.length > 0) {
+      const deletePrerequisite = prerequisiteCourses.filter(
+        prerequisite => prerequisite.courseId && prerequisite.isDeleted
+      );
+      const newPrerequisite = prerequisiteCourses.filter(
+        prerequisite => !(prerequisite.courseId && prerequisite.isDeleted)
+      );
+      // console.log(newPrerequisite);
+      // now let's  delete and create from detebase
+      // since  here is multiple action so need to use transanction
+      // delete operation
+      for (let index = 0; index < deletePrerequisite.length; index++) {
+        await transanctionClient.courseToPrerequisite.deleteMany({
+          where: {
+            AND: [
+              {
+                courseId: id,
+              },
+              {
+                prerequisiteId: deletePrerequisite[index].courseId,
+              },
+            ],
+          },
+        });
+      }
+      // create operation
+      for (let index = 0; index < newPrerequisite.length; index++) {
+        await transanctionClient.courseToPrerequisite.create({
+          data: {
+            courseId: id,
+            prerequisiteId: newPrerequisite[index].courseId,
+          },
+        });
+      }
+    }
+    return result;
   });
-  return result;
+  const responseData = await prisma.course.findUnique({
+    where: {
+      id: id,
+    },
+    include: {
+      prerequisite: {
+        include: {
+          prerequisite: true,
+        },
+      },
+      prerequisiteFor: {
+        include: {
+          prerequisite: true,
+        },
+      },
+    },
+  });
+  return responseData;
 };
 const getAllCourses = async (
   filters: ICourseFilterableFields,
@@ -87,6 +145,18 @@ const getAllCourses = async (
   const { sortBy, sortOrder } = options;
   const result = await prisma.course.findMany({
     where: whereConditions,
+    include: {
+      prerequisite: {
+        include: {
+          prerequisite: true,
+        },
+      },
+      prerequisiteFor: {
+        include: {
+          course: true,
+        },
+      },
+    },
     skip,
     take: limit,
     orderBy:
