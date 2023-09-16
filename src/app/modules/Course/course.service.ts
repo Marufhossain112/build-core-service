@@ -2,11 +2,16 @@ import { Course, Prisma } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
-import { ICourseCreateData, ICourseFilterableFields } from './course.interface';
+import {
+  ICourseCreateData,
+  ICourseFilterableFields,
+  IPrerequisiteCourseRequest,
+} from './course.interface';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CourseSearchableFields } from './course.constants';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
+import { asyncForEach } from '../../../shared/utils';
 
 const insertIntoDb = async (data: any): Promise<any> => {
   const { prerequisiteCourses, ...courseData } = data;
@@ -18,16 +23,19 @@ const insertIntoDb = async (data: any): Promise<any> => {
       throw new ApiError(httpStatus.BAD_REQUEST, 'Course not created.');
     }
     if (prerequisiteCourses && prerequisiteCourses.length > 0) {
-      for (let index = 0; index < prerequisiteCourses.length; index++) {
-        const createPrerequisite =
-          await transanctionClient.courseToPrerequisite.create({
-            data: {
-              courseId: result.id,
-              prerequisiteId: prerequisiteCourses[index].courseId,
-            },
-          });
-        console.log(createPrerequisite);
-      }
+      await asyncForEach(
+        prerequisiteCourses,
+        async (prerequisiteCourse: IPrerequisiteCourseRequest) => {
+          const createPrerequisite =
+            await transanctionClient.courseToPrerequisite.create({
+              data: {
+                courseId: result.id,
+                prerequisiteId: prerequisiteCourse.courseId,
+              },
+            });
+          console.log(createPrerequisite);
+        }
+      );
     }
     return result;
   });
@@ -78,29 +86,35 @@ const updateOneInDb = async (
       // now let's  delete and create from detebase
       // since  here is multiple action so need to use transanction
       // delete operation
-      for (let index = 0; index < deletePrerequisite.length; index++) {
-        await transanctionClient.courseToPrerequisite.deleteMany({
-          where: {
-            AND: [
-              {
-                courseId: id,
-              },
-              {
-                prerequisiteId: deletePrerequisite[index].courseId,
-              },
-            ],
-          },
-        });
-      }
+      await asyncForEach(
+        deletePrerequisite,
+        async (deletePrerequisite: IPrerequisiteCourseRequest) => {
+          await transanctionClient.courseToPrerequisite.deleteMany({
+            where: {
+              AND: [
+                {
+                  courseId: id,
+                },
+                {
+                  prerequisiteId: deletePrerequisite.courseId,
+                },
+              ],
+            },
+          });
+        }
+      );
       // create operation
-      for (let index = 0; index < newPrerequisite.length; index++) {
-        await transanctionClient.courseToPrerequisite.create({
-          data: {
-            courseId: id,
-            prerequisiteId: newPrerequisite[index].courseId,
-          },
-        });
-      }
+      await asyncForEach(
+        newPrerequisite,
+        async (newPrerequisiteCourse: IPrerequisiteCourseRequest) => {
+          await transanctionClient.courseToPrerequisite.create({
+            data: {
+              courseId: id,
+              prerequisiteId: newPrerequisiteCourse.courseId,
+            },
+          });
+        }
+      );
     }
     return result;
   });

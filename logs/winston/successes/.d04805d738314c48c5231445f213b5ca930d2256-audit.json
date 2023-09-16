@@ -224,6 +224,16 @@
             "date": 1694841452496,
             "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/successes/phu-2023-16-09-11-success.log",
             "hash": "d3115b590ed2a1cbb3e2814d6459667f234db4fd2d646a2a4d889c7cf234a244"
+        },
+        {
+            "date": 1694851199682,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/successes/phu-2023-16-09-13-success.log",
+            "hash": "5acb7e9130bf4f7c5e114fc21a45981d79df3cb85d21962e5748634cea0a54e7"
+        },
+        {
+            "date": 1694851200466,
+            "name": "/home/maruf/PostgreSql/core_service/university-management-core-service-starter/logs/winston/successes/phu-2023-16-09-14-success.log",
+            "hash": "1167ebd837e9eb610086b173d5dcabe7f9c1afbc0bea7c158195762cebc5fec6"
         }
     ],
     "hashType": "sha256"
