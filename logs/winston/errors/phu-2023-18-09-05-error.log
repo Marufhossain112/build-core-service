@@ -1,0 +1,15 @@
+Mon Sep 18 2023 5:13:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.create()` invocation:
+
+{
+  data: {
+    tilte: "Section-A",
+    maxCapacity: 30,
+    currentlyEnrolledStudent: 25,
+    offeredCourseId: "95ee5ae4-4688-4c91-aa5b-c3b5fb003d69",
+    semesterRegistrationId: "c1a1d24f-6bdc-44cc-b423-31681a6c5738",
++   title: String
+  }
+}
+
+Argument `title` is missing.

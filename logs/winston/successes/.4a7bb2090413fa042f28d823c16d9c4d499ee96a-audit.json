@@ -14,6 +14,16 @@
             "date": 1694956858879,
             "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-17-09-19-success.log",
             "hash": "3ee83cf0dc051bebac7b80084794a1aa7cc695cebade4d0b26b57a59093ec3ff"
+        },
+        {
+            "date": 1694990121805,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-18-09-04-success.log",
+            "hash": "f0867bdaddac0cfd1118547fff95e0fa0c6eee5e29ebc9455d2d4d91bcb4a180"
+        },
+        {
+            "date": 1694992215724,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-18-09-05-success.log",
+            "hash": "3d4f5b8733e938f24c890d8711a555998ef5f18bcbdbdcfb1208363ee1d1715c"
         }
     ],
     "hashType": "sha256"
