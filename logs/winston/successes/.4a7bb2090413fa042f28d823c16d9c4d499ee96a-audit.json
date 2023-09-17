@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/home/maruf/Error/build-core-service/logs/winston/successes/.4a7bb2090413fa042f28d823c16d9c4d499ee96a-audit.json",
+    "files": [
+        {
+            "date": 1694938937324,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-17-09-14-success.log",
+            "hash": "5fdd1e8ab7ec30c9c7ecc568187e5d33f4a6452aac1694365f24f9c7b3bad56c"
+        },
+        {
+            "date": 1694956858879,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-17-09-19-success.log",
+            "hash": "3ee83cf0dc051bebac7b80084794a1aa7cc695cebade4d0b26b57a59093ec3ff"
+        }
+    ],
+    "hashType": "sha256"
+}
