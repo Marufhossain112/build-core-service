@@ -1,0 +1,22 @@
+Sun Sep 17 2023 6:9:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester registration does not exist.
+Sun Sep 17 2023 6:9:19 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Can only move from ongoing to ended.
+Sun Sep 17 2023 6:30:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+Sun Sep 17 2023 6:36:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+Sun Sep 17 2023 6:40:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
+Sun Sep 17 2023 6:45:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.

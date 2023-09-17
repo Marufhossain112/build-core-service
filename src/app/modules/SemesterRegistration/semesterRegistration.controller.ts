@@ -22,7 +22,17 @@ const updateToDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const deleteFromDb = catchAsync(async (req: Request, res: Response) => {
+  const result = await semesterRegistrationService.deleteFromDb(req.params.id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Semester registration data deleted successfully.',
+    data: result,
+  });
+});
 export const semesterRegistrationController = {
   insertIntoDb,
   updateToDb,
+  deleteFromDb,
 };
