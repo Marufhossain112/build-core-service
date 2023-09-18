@@ -1,2 +1,13 @@
-
-// Define your constants here
+export const OfferedCourseClassScheduleSearchableFields = ['dayOfWeek'];
+export const OfferedCourseClassScheduleRelationalFields = [
+  'offeredCourseSectionId',
+  'semesterRegistrationId',
+  'roomId',
+  'facultyId',
+];
+export const OfferedCourseClassScheduleRelationalFieldsMapper = {
+  offeredCourseSectionId: 'offeredCourseSection',
+  semesterRegistrationId: 'semesterRegistration',
+  roomId: 'room',
+  facultyId: 'faculty',
+};
