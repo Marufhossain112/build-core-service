@@ -13,3 +13,9 @@ Invalid `prisma.offeredCourseSection.create()` invocation:
 }
 
 Argument `title` is missing.
+Mon Sep 18 2023 5:48:54 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course does not exist.
+Mon Sep 18 2023 5:49:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_section_offeredCourseId_fkey (index)`
