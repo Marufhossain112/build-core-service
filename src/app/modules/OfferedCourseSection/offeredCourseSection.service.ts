@@ -3,6 +3,7 @@ import { prisma } from '../../../shared/prisma';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const insertIntoDB = async (data: any): Promise<OfferedCourseSection> => {
   const isExistOfferedCourse = await prisma.offeredCourse.findFirst({
     where: { id: data.offeredCourseId },

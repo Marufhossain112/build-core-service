@@ -1,0 +1,14 @@
+import { OfferedCourseClassSchedule } from '@prisma/client';
+import { prisma } from '../../../shared/prisma';
+
+const insertIntoDB = async (
+  data: OfferedCourseClassSchedule
+): Promise<OfferedCourseClassSchedule> => {
+  const result = await prisma.offeredCourseClassSchedule.create({
+    data,
+  });
+  return result;
+};
+export const OfferedCourseClassScheduleService = {
+  insertIntoDB,
+};
