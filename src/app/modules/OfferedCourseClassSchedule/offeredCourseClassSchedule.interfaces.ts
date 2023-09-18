@@ -1,2 +1,5 @@
-
-// Define your interfaces here
+export type Slots = {
+  startTime: string;
+  endTime: string;
+  dayOfWeek: string;
+};
