@@ -1,0 +1,9 @@
+Tue Sep 19 2023 9:1:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registrations_academicSemesterId_fkey (index)`
+Tue Sep 19 2023 9:2:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student data not found.
+Tue Sep 19 2023 9:19:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student is already registered.
+Tue Sep 19 2023 9:20:1 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student is already registered.
+Tue Sep 19 2023 9:31:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student is already registered.

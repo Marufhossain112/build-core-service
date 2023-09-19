@@ -1,0 +1,33 @@
+Mon Sep 18 2023 22:24:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+{
+  data: {
+    studentId: "0002",
+    firstName: "Maruf",
+    middleName: "Hossain",
+    lastName: "Khan",
+    profileImage: "img-link",
+    email: "maruf112@gmail.com",
+    contactNo: "01232342445",
+    gender: "male",
+    designation: "MD",
+    ~~~~~~~~~~~
+    bloodGroup: "A+",
+    academicSemesterId: "14b5ce49-d199-4284-b701-85ea12d480c4",
+    academicDepartmentId: "e5e3dc7f-e1ea-4c66-9e9a-e62c5fc4f09a",
+    academicFacultyId: "b21f8696-0097-4ec6-8bdc-847dd1aa87ea",
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   studentSemesterRegistrations?: StudentSemesterRegistrationUncheckedCreateNestedManyWithoutStudentInput
+  },
+  include: {
+    academicSemester: true,
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Unknown argument `designation`. Available options are listed in green.
+Mon Sep 18 2023 22:30:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized

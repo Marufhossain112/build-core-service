@@ -1,6 +1,7 @@
 import {
   SemesterRegistration,
   SemesterRegistrationStatus,
+  StudentSemesterRegistration,
 } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import ApiError from '../../../errors/ApiError';
@@ -89,8 +90,80 @@ const deleteFromDb = async (id: string) => {
   });
   return result;
 };
+const startMyRegistration = async (
+  authorUserId: string
+): Promise<{
+  studentSemesterRegistration: StudentSemesterRegistration | null;
+  semesterRegistration: SemesterRegistration | null;
+}> => {
+  const studentInfo = await prisma.student.findFirst({
+    where: {
+      studentId: authorUserId,
+    },
+  });
+  if (!studentInfo) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Student data not found.');
+  }
+  const semesterRegistrationInfo = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: {
+        in: [
+          SemesterRegistrationStatus.ONGOING,
+          SemesterRegistrationStatus.UPCOMING,
+        ],
+      },
+    },
+  });
+  // console.log(semesterRegistrationInfo);
+  if (
+    semesterRegistrationInfo?.status === SemesterRegistrationStatus.UPCOMING
+  ) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'Registration did not start yet.'
+    );
+  }
+  let studentRegistration = await prisma.studentSemesterRegistration.findFirst({
+    where: {
+      student: {
+        id: studentInfo.id,
+      },
+      semesterRegistration: {
+        id: semesterRegistrationInfo?.id,
+      },
+    },
+  });
+  if (studentRegistration) {
+    throw new ApiError(
+      httpStatus.BAD_REQUEST,
+      'Student is already registered.'
+    );
+  }
+  if (!studentRegistration) {
+    studentRegistration = await prisma.studentSemesterRegistration.create({
+      data: {
+        student: {
+          connect: {
+            id: studentInfo?.id,
+          },
+        },
+        semesterRegistration: {
+          connect: {
+            id: semesterRegistrationInfo?.id,
+          },
+        },
+      },
+    });
+    // return studentRegistration;
+  }
+  return {
+    semesterRegistration: semesterRegistrationInfo,
+    studentSemesterRegistration: studentRegistration,
+  };
+};
 export const semesterRegistrationService = {
   insertIntoDb,
   updateToDb,
   deleteFromDb,
+  startMyRegistration,
 };
