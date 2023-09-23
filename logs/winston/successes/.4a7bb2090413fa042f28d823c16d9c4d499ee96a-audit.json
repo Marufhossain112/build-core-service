@@ -109,6 +109,11 @@
             "date": 1695452547629,
             "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-13-success.log",
             "hash": "0f70c31eb275ed2e2d8d24bed5a6ea36fcb920725aa498a8b8ac6506f8e5b0d7"
+        },
+        {
+            "date": 1695456203018,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-14-success.log",
+            "hash": "6ef4006d62fecef7be0b82c2e2749bd0caa3e4b7405d540c9c227bf1b38d6a6f"
         }
     ],
     "hashType": "sha256"

@@ -161,9 +161,40 @@ const startMyRegistration = async (
     studentSemesterRegistration: studentRegistration,
   };
 };
+const enrollToCourse = async (userId: string, payload: any) => {
+  // console.log("UserId , from token", userId);
+  const student = await prisma.student.findFirst({
+    where: {
+      studentId: userId
+    }
+  });
+  // console.log("got the result", student);
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: SemesterRegistrationStatus.ONGOING
+    }
+  });
+  // console.log(semesterRegistration);
+  if (!student) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "No student found.");
+  }
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "No semesterRegistration found.");
+  }
+  const enrollIntoCourse = await prisma.studentSemesterRegistrationCourse.create({
+    data: {
+      studentId: student?.id,
+      semesterRegistrationId: semesterRegistration?.id,
+      offeredCourseId: payload.offeredCourseId,
+      offeredCourseSectionId: payload.offeredCourseSectionId,
+    }
+  });
+  return enrollIntoCourse;
+};
 export const semesterRegistrationService = {
   insertIntoDb,
   updateToDb,
   deleteFromDb,
   startMyRegistration,
+  enrollToCourse
 };

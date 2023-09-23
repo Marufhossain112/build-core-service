@@ -1,0 +1,6 @@
+Sat Sep 23 2023 14:7:51 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Sat Sep 23 2023 14:37:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_courses_semesterRegistrationId_fkey (index)`
