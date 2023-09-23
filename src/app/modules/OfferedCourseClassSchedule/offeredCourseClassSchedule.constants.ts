@@ -11,3 +11,10 @@ export const OfferedCourseClassScheduleRelationalFieldsMapper = {
   roomId: 'room',
   facultyId: 'faculty',
 };
+export const OfferedCourseClassScheduleFilterRequest = [
+  'searchTerm',
+  'offeredCourseSectionId',
+  'semesterRegistrationId',
+  'facultyId',
+  'roomId',
+];

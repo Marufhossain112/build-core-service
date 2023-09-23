@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from './../../../shared/prisma';
 import { OfferedCourseClassSchedule, Prisma } from '@prisma/client';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
