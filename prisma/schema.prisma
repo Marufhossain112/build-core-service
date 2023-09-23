@@ -244,6 +244,18 @@ model StudentSemesterRegistration {
   @@map("student_semester_registration")
 }
 
+model StudentSemesterRegistrationCourse {
+  semesterRegistrationId String
+  studentId              String
+  offeredCourseId        String
+  offeredCourseSectionId String
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+
+  @@id([semesterRegistrationId, studentId, offeredCourseId, offeredCourseSectionId])
+  @@map("student_semester_registration_course")
+}
+
 enum WeekDays {
   SATURDAY
   SUNDAY
