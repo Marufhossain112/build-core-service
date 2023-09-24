@@ -25,10 +25,14 @@ router.patch(
   semesterRegistrationController.updateToDb
 );
 router.post(
-  '/enroll-to-course', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.enrollToCourse
+  '/enroll-to-course', validateRequest(
+    SemesterRegistrationValidation.enrollOrWithdrawCourse  
+  ), auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.enrollToCourse
 );
 router.post(
-  '/withdraw-from-course', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.withdrawFromCourse
+  '/withdraw-from-course', validateRequest(
+    SemesterRegistrationValidation.enrollOrWithdrawCourse
+  ), auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.withdrawFromCourse
 );
 router.delete('/:id', semesterRegistrationController.deleteFromDb);
 export const SemesterRegistrationRouter = router;
