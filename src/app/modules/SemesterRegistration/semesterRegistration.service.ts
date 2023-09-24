@@ -170,11 +170,54 @@ const enrollToCourse = async (userId: string, payload: IEnrollCoursePayload) => 
 const withdrawFromCourse = async (userId: string, payload: IEnrollCoursePayload) => {
   return StudentSemesterRegistrationService.withdrawFromCourse(userId, payload);
 };
+
+const confirmMyRegistration = async (userId: string) => {
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: SemesterRegistrationStatus.ONGOING
+    }
+  });
+  const studentSemesterRegistration = await prisma.studentSemesterRegistration.findFirst({
+    where: {
+      semesterRegistration: {
+        id: semesterRegistration?.id
+      },
+      student: {
+        studentId: userId
+      }
+    }
+  });
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.NOT_FOUND, "No semesterRegistration found.");
+  }
+  if (!studentSemesterRegistration) {
+    throw new ApiError(httpStatus.NOT_FOUND, "No studentSemesterRegistration found.");
+  }
+  if (studentSemesterRegistration.totalCreditsTaken && semesterRegistration.minCredit && semesterRegistration.maxCredit && (studentSemesterRegistration.totalCreditsTaken < semesterRegistration.minCredit || studentSemesterRegistration.totalCreditsTaken < semesterRegistration.maxCredit)) {
+    throw new ApiError(httpStatus.BAD_REQUEST, `You can only take ${semesterRegistration.minCredit} to ${semesterRegistration.maxCredit} courses.`);
+  }
+  if (studentSemesterRegistration.totalCreditsTaken === 0) {
+    throw new ApiError(httpStatus.NOT_FOUND, "You have not enrolled on any course yet.");
+  }
+  await prisma.studentSemesterRegistration.update({
+    where: {
+      id: studentSemesterRegistration.id
+    }, data: {
+      isConfirmed: true
+    }
+  });
+  return {
+    message: "Your registration is confirmed."
+  };
+  // console.log("semesterRegistration", semesterRegistration);
+  // console.log("StudentSemesterRegistration", studentSemesterRegistration);
+};
 export const semesterRegistrationService = {
   insertIntoDb,
   updateToDb,
   deleteFromDb,
   startMyRegistration,
   enrollToCourse,
-  withdrawFromCourse
+  withdrawFromCourse,
+  confirmMyRegistration
 };

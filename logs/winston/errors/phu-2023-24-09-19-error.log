@@ -1,0 +1,6 @@
+Sun Sep 24 2023 19:2:41 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 34 to 40 courses.
+Sun Sep 24 2023 19:2:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.delete()` invocation:
+
+
+An operation failed because it depends on one or more records that were required but not found. Record to delete does not exist.
