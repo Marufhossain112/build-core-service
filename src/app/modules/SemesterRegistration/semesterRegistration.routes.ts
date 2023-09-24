@@ -40,5 +40,8 @@ router.post(
 router.get(
   '/get-my-registration', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.getMyRegistration
 );
+router.post(
+  '/:id/start-new-semester', auth(ENUM_USER_ROLE.ADMIN), semesterRegistrationController.startNewSemester
+);
 router.delete('/:id', semesterRegistrationController.deleteFromDb);
 export const SemesterRegistrationRouter = router;
