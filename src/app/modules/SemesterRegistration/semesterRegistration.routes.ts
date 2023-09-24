@@ -27,5 +27,8 @@ router.patch(
 router.post(
   '/enroll-to-course', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.enrollToCourse
 );
+router.post(
+  '/withdraw-from-course', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.withdrawFromCourse
+);
 router.delete('/:id', semesterRegistrationController.deleteFromDb);
 export const SemesterRegistrationRouter = router;

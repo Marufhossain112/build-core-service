@@ -246,10 +246,82 @@ const enrollToCourse = async (userId: string, payload: IEnrollCoursePayload) => 
     message: "Successfully enrolled into course."
   };
 };
+
+const withdrawFromCourse = async (userId: string, payload: IEnrollCoursePayload) => {
+  // console.log("UserId , from token", userId);
+  const student = await prisma.student.findFirst({
+    where: {
+      studentId: userId
+    }
+  });
+  // console.log("got the student", student);
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: SemesterRegistrationStatus.ONGOING
+    }
+  });
+  // console.log('got the semester registration', semesterRegistration);
+  const offeredCourse = await prisma.offeredCourse.findFirst({
+    where: {
+      id: payload.offeredCourseId
+    }, include: {
+      course: true
+    }
+  });
+  // console.log('got the offeredCourse', offeredCourse);
+
+  if (!student) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "No student found.");
+  }
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "No semesterRegistration found.");
+  }
+  if (!offeredCourse) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "No offeredCourse found.");
+  }
+  await prisma.$transaction(async (transanctionClient) => {
+    await transanctionClient.studentSemesterRegistrationCourse.delete({
+      where: {
+        semesterRegistrationId_studentId_offeredCourseId: {
+          studentId: student?.id,
+          semesterRegistrationId: semesterRegistration?.id,
+          offeredCourseId: payload.offeredCourseId,
+        }
+      }
+    });
+    await transanctionClient.offeredCourseSection.update({
+      where: {
+        id: payload.offeredCourseSectionId
+      }, data: {
+        currentlyEnrolledStudent: {
+          decrement: 1
+        }
+      }
+    });
+    await transanctionClient.studentSemesterRegistration.updateMany({
+      where: {
+        student: {
+          id: student.id
+        },
+        semesterRegistration: {
+          id: semesterRegistration.id
+        }
+      }, data: {
+        totalCreditsTaken: {
+          decrement: offeredCourse.course.credits
+        }
+      }
+    });
+  });
+  return {
+    message: "Successfully withdrawed from the course."
+  };
+};
 export const semesterRegistrationService = {
   insertIntoDb,
   updateToDb,
   deleteFromDb,
   startMyRegistration,
-  enrollToCourse
+  enrollToCourse,
+  withdrawFromCourse
 };
