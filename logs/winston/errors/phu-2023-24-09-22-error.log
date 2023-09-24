@@ -1,0 +1,22 @@
+Sun Sep 24 2023 22:8:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started. 
+Sun Sep 24 2023 22:25:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course does not exist.
+Sun Sep 24 2023 22:26:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_courses_semesterRegistrationId_fkey (index)`
+Sun Sep 24 2023 22:27:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_courses_semesterRegistrationId_fkey (index)`
+Sun Sep 24 2023 22:27:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registrations_academicSemesterId_fkey (index)`
+Sun Sep 24 2023 22:28:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registrations_academicSemesterId_fkey (index)`
