@@ -17,6 +17,16 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const login = catchAsync(async (req: Request, res: Response) => {
+  const result = await StudentService.login(req.body);
+  // console.log('controller', result);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'User signin successfully!',
+    data: result
+  });
+});
 const getAllFromDb = catchAsync(async (req: Request, res: Response) => {
   // console.log(req.query);
   const filters = pick(req.query, StudentFilterableFields);
@@ -64,4 +74,5 @@ export const StudentController = {
   getDataById,
   updateToDb,
   deleteFromDb,
+  login
 };

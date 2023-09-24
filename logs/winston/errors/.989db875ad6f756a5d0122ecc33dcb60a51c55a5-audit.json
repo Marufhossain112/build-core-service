@@ -114,6 +114,41 @@
             "date": 1695456203024,
             "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-23-09-14-error.log",
             "hash": "fab5874473f607010833ccb4be6ad746be1a079be3649dbcf748645884ea1171"
+        },
+        {
+            "date": 1695476106748,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-23-09-19-error.log",
+            "hash": "c49f10b72208e263d48b4ba06e4a9cee274615f29ca5304d258a0bc264a95319"
+        },
+        {
+            "date": 1695482975144,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-23-09-21-error.log",
+            "hash": "9261a71a0075545faf0eb9adda8eabc22509609fe530dedbcf3e0a40ce2d5837"
+        },
+        {
+            "date": 1695484801947,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-23-09-22-error.log",
+            "hash": "f066754f25e7ae0236dadcddcfe986093325cc0fee9cd79f65b21802fb19bfdf"
+        },
+        {
+            "date": 1695488488878,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-23-09-23-error.log",
+            "hash": "b1ad9e7f57b81707f3ed78cf4991dfda317e50bd089256f3eb3b1c105a52cbeb"
+        },
+        {
+            "date": 1695494043350,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-24-09-00-error.log",
+            "hash": "7908a22e7c71f101b525d6f5d6d3b687a0c67309a48ac98a86c0143e8486e0fc"
+        },
+        {
+            "date": 1695495694338,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-24-09-01-error.log",
+            "hash": "5249a9346c3a356d21e6d2f28dd34aee681ba197f782835a61c13a489694bcbe"
+        },
+        {
+            "date": 1695525168464,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-24-09-09-error.log",
+            "hash": "17b8570a28c1c7f4593d76fbdd35414e1614e65b3d9e940c95f849d679b4730b"
         }
     ],
     "hashType": "sha256"

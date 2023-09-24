@@ -73,6 +73,8 @@ model Student {
   lastName                           String
   profileImage                       String
   email                              String
+  role                               Role
+  password                           String
   contactNo                          String
   gender                             String
   bloodGroup                         String
@@ -141,7 +143,7 @@ model Course {
   id              String                 @id @default(uuid())
   title           String
   code            String
-  credits         String
+  credits         Int
   createdAt       DateTime               @default(now())
   updatedAt       DateTime               @updatedAt
   prerequisite    CourseToPrerequisite[] @relation("courseToPrerequisite")
@@ -211,7 +213,7 @@ model OfferedCourseSection {
   id                                 String                              @id @default(uuid())
   title                              String
   maxCapacity                        Int
-  currentlyEnrolledStudent           Int
+  currentlyEnrolledStudent           Int                                 @default(0)
   createdAt                          DateTime                            @default(now())
   updatedAt                          DateTime                            @updatedAt
   offeredCourseId                    String

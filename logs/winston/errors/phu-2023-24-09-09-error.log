@@ -1,0 +1,63 @@
+Sun Sep 24 2023 9:12:48 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registrations_academicSemesterId_fkey (index)`
+Sun Sep 24 2023 9:13:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.semesterRegistration.create()` invocation:
+
+
+Foreign key constraint failed on the field: `semester_registrations_academicSemesterId_fkey (index)`
+Sun Sep 24 2023 9:17:21 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt malformed
+Sun Sep 24 2023 9:17:50 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student data not found.
+Sun Sep 24 2023 9:19:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+
+Foreign key constraint failed on the field: `students_academicSemesterId_fkey (index)`
+Sun Sep 24 2023 9:24:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No offeredCourse found.
+Sun Sep 24 2023 9:24:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.create()` invocation:
+
+
+Error occurred during query execution:
+ConnectorError(ConnectorError { user_facing_error: None, kind: QueryError(Error { kind: Db, cause: Some(DbError { severity: "ERROR", parsed_severity: Some(Error), code: SqlState(E08P01), message: "insufficient data left in message", detail: None, hint: None, position: None, where_: Some("unnamed portal parameter $4"), schema: None, table: None, column: None, datatype: None, constraint: None, file: Some("pqformat.c"), line: Some(533), routine: Some("pq_copymsgbytes") }) }), transient: false })
+Sun Sep 24 2023 9:25:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.course.create()` invocation:
+
+{
+  data: {
+    title: "Programming Hero Batch 21",
+    code: "002AEDDF",
+    credits: "45"
+             ~~~~
+  }
+}
+
+Argument `credits`: Invalid value provided. Expected Int, provided String.
+Sun Sep 24 2023 9:25:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "credits"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Sun Sep 24 2023 9:26:14 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "credits"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Sun Sep 24 2023 9:30:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Unexpected token ] in JSON at position 219
+Sun Sep 24 2023 9:31:17 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course does not exist.

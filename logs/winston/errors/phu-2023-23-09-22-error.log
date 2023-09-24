@@ -1,0 +1,82 @@
+Sat Sep 23 2023 22:14:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:15:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:16:43 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:19:26 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:23:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:24:55 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.delete()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 22:55:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "password"
+    ],
+    "message": "password is required."
+  }
+]
+Sat Sep 23 2023 22:55:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+{
+  data: {
+    studentId: "001",
+    firstName: "Maruf",
+    middleName: "Hossain",
+    password: "$2b$10$6jHBH4xTb6Nkrrt3dF8VK..P4XD8thudNhHnReq1HsTc2BeKvGE.a",
+    lastName: "Khan",
+    profileImage: "img-link",
+    email: "maruf112@gmail.com",
+    contactNo: "01232342445",
+    gender: "male",
+    bloodGroup: "A+",
+    academicSemesterId: "c6372628-5d2d-48c1-ab5d-a1e8c59a7231",
+    academicDepartmentId: "e5e3dc7f-e1ea-4c66-9e9a-e62c5fc4f09a",
+    academicFacultyId: "b21f8696-0097-4ec6-8bdc-847dd1aa87ea",
++   role: Role
+  },
+  include: {
+    academicSemester: true,
+    academicDepartment: true,
+    academicFaculty: true
+  }
+}
+
+Argument `role` is missing.
+Sat Sep 23 2023 22:56:55 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "expected": "'admin' | 'customer' | 'student'",
+    "received": "undefined",
+    "code": "invalid_type",
+    "path": [
+      "body",
+      "role"
+    ],
+    "message": "role is required."
+  }
+]

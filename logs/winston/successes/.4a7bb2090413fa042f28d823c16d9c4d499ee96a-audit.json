@@ -114,6 +114,41 @@
             "date": 1695456203018,
             "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-14-success.log",
             "hash": "6ef4006d62fecef7be0b82c2e2749bd0caa3e4b7405d540c9c227bf1b38d6a6f"
+        },
+        {
+            "date": 1695476104902,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-19-success.log",
+            "hash": "6d484a30070490a2f894ff0dac94ddd4c26e80e76c4757ec55f65df2fa19aede"
+        },
+        {
+            "date": 1695482974866,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-21-success.log",
+            "hash": "d8dc00c76465b337f2124ceabb1c755838d1d2965c294eb2f7b6db4ea09c03a5"
+        },
+        {
+            "date": 1695484801484,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-22-success.log",
+            "hash": "b0293cae4fb698dc3054da8d09fbc5c665e12381912577f2a57a097473e4a6a3"
+        },
+        {
+            "date": 1695488488523,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-23-09-23-success.log",
+            "hash": "8f52c7d232ed9e9405cde64246365d8d7c30a32116d4ad031c69e21b0e55b071"
+        },
+        {
+            "date": 1695494043346,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-24-09-00-success.log",
+            "hash": "e2d269001321d02e79eb043bdc9cc2839a313f795caa698f243f45e2fbf2e6ed"
+        },
+        {
+            "date": 1695495693916,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-24-09-01-success.log",
+            "hash": "31307b180a1bbd5ed3b1336af61b2d38fc6c81443ba89ca40bccdc1c7a614046"
+        },
+        {
+            "date": 1695525909736,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-24-09-09-success.log",
+            "hash": "b629d0227dc51ec3d15b0543252fbcd4b54b27fd793874d5e8537431a4996486"
         }
     ],
     "hashType": "sha256"

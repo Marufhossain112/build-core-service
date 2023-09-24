@@ -1,8 +1,12 @@
+import { Role } from '@prisma/client';
 import { z } from 'zod';
+const roleEnumValues = Object.values(Role) as string[];
 const create = z.object({
   body: z.object({
     studentId: z.string({
       required_error: 'studentId is required.',
+    }), password: z.string({
+      required_error: 'password is required.',
     }),
     firstName: z.string({
       required_error: 'firstName is required.',
@@ -15,6 +19,9 @@ const create = z.object({
     }),
     profileImage: z.string({
       required_error: 'profileImage is required.',
+    }),
+    role: z.enum([...roleEnumValues] as [string, ...string[]], {
+      required_error: 'role is required.',
     }),
     email: z.string({
       required_error: 'email is required.',
@@ -39,6 +46,16 @@ const create = z.object({
     }),
   }),
 });
+const login = z.object({
+  body: z.object({
+    password: z.string({
+      required_error: 'password is required.',
+    }),
+    email: z.string({
+      required_error: 'email is required.',
+    }),
+  }),
+});
 const update = z.object({
   body: z.object({
     studentId: z.string({}).optional(),
@@ -56,6 +73,7 @@ const update = z.object({
   }),
 });
 export const StudentValidation = {
+  login,
   create,
   update,
 };

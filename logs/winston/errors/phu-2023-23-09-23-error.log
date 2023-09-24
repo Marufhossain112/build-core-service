@@ -1,0 +1,27 @@
+Sat Sep 23 2023 23:2:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 23:34:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 23:36:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`
+Sat Sep 23 2023 23:40:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`,`offeredCourseSectionId`)
+Sat Sep 23 2023 23:40:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and hash arguments required
+Sat Sep 23 2023 23:41:39 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt malformed
+Sat Sep 23 2023 23:53:11 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`

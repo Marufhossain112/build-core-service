@@ -1,0 +1,11 @@
+Sat Sep 23 2023 21:41:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`,`offeredCourseSectionId`)
+Sat Sep 23 2023 21:56:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No student found.
+Sat Sep 23 2023 21:57:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `student_semester_registration_course_studentId_fkey (index)`

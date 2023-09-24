@@ -11,7 +11,6 @@ import { SemesterRegistrationRouter } from '../modules/SemesterRegistration/seme
 import { OfferedCourseRoutes } from '../modules/OfferedCourse/offeredCourse.routes';
 import { OfferedCourseSectionRoutes } from '../modules/OfferedCourseSection/offeredCourseSection.routes';
 import { OfferedCourseClassScheduleRoutes } from '../modules/OfferedCourseClassSchedule/offeredCourseClassSchedule.routes';
-import { AuthRoutes } from '../modules/auth/auth.routes';
 
 const router = express.Router();
 
@@ -64,10 +63,7 @@ const moduleRoutes = [
     path: '/offered-course-class-schedule',
     routes: OfferedCourseClassScheduleRoutes,
   },
-  {
-    path: '/auth',
-    routes: AuthRoutes,
-  },
+
 ];
 
 moduleRoutes.forEach(route => router.use(route.path, route.routes));

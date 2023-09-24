@@ -3,12 +3,24 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
 import { Prisma, Student } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
-import { IStudentFilterRequest } from './student.interface';
+import { ILoginUser, IStudentFilterRequest } from './student.interface';
 import { StudentSearchableFields } from './student.constrants';
+import bcrypt from 'bcrypt';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
+import { jwtHelpers } from '../../../helpers/jwtHelpers';
+import config from '../../../config';
 
 const insertIntoDb = async (StudentData: Student): Promise<Student> => {
+  const saltRounds = 10; // You can adjust the number of rounds for security
+  const salt = await bcrypt.genSalt(saltRounds);
+  // Hash the user's password with the generated salt
+  const hashedPassword = await bcrypt.hash(StudentData.password, salt);
   const result = await prisma.student.create({
-    data: StudentData,
+    data: {
+      ...StudentData,
+      password: hashedPassword,
+    },
     include: {
       academicSemester: true,
       academicDepartment: true,
@@ -17,7 +29,29 @@ const insertIntoDb = async (StudentData: Student): Promise<Student> => {
   });
   return result;
 };
+const login = async (data: ILoginUser) => {
+  const user = await prisma.student.findFirst({
+    where: {
+      email: data?.email,
+    },
+  });
+  const isPasswordMatch = await bcrypt.compare(
+    data.password,
+    user?.password as string
+  );
+  if (!isPasswordMatch) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Password did not match.');
+  }
 
+  // create token
+  const payload = { role: user?.role, userId: user?.studentId };
+  const token = jwtHelpers.createToken(
+    payload,
+    config.jwt.secret as string,
+    config.jwt.expires_in as string
+  );
+  return token;
+};
 const getAllFromDb = async (
   filters: IStudentFilterRequest,
   options: IPaginationOptions
@@ -64,9 +98,9 @@ const getAllFromDb = async (
     orderBy:
       sortBy && sortOrder
         ? {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            [options.sortBy as any]: options.sortOrder,
-          }
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          [options.sortBy as any]: options.sortOrder,
+        }
         : { createdAt: 'desc' },
   });
   // console.log('I am groot', filters);
@@ -116,4 +150,5 @@ export const StudentService = {
   getDataById,
   updateToDb,
   deleteFromDb,
+  login
 };
