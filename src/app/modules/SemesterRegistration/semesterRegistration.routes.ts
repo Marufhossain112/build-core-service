@@ -37,5 +37,8 @@ router.post(
 router.post(
   '/confirm-my-registration', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.confirmMyRegistration
 );
+router.get(
+  '/get-my-registration', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.getMyRegistration
+);
 router.delete('/:id', semesterRegistrationController.deleteFromDb);
 export const SemesterRegistrationRouter = router;
