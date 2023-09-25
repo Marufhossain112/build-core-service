@@ -49,6 +49,9 @@ const enrollToCourse = async (userId: string, payload: IEnrollCoursePayload) => 
     if (!offeredCourseSection) {
         throw new ApiError(httpStatus.BAD_REQUEST, "No offeredCourseSection found.");
     }
+    if (!offeredCourseSection) {
+        throw new ApiError(httpStatus.BAD_REQUEST, "No offeredCourseSection found.");
+    }
 
     await prisma.$transaction(async (transanctionClient) => {
         await transanctionClient.studentSemesterRegistrationCourse.create({
@@ -58,7 +61,6 @@ const enrollToCourse = async (userId: string, payload: IEnrollCoursePayload) => 
                 offeredCourseId: payload.offeredCourseId,
                 offeredCourseSectionId: payload.offeredCourseSectionId,
             },
-
         });
         await transanctionClient.offeredCourseSection.update({
             where: {

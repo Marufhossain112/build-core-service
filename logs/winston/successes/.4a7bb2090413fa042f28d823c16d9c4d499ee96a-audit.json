@@ -194,6 +194,31 @@
             "date": 1695593122630,
             "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-04-success.log",
             "hash": "4e577bd27fd2b2c1cb4eb87ef6b3748c2f709d7c4c744add3640c99dd590cdb5"
+        },
+        {
+            "date": 1695610798822,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-08-success.log",
+            "hash": "8260d1df624a01b91cc5c98a5f1eacf7b472df656642054148f99a30b76e0038"
+        },
+        {
+            "date": 1695610800347,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-09-success.log",
+            "hash": "77e071e402b56af05b299c7349a96c495c7578482bcf6a9f526fe6b7495f0892"
+        },
+        {
+            "date": 1695622783573,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-12-success.log",
+            "hash": "99509fa17315ff877222cc0c6d74ee414ced8587dd485bdb109cdbc010f432f5"
+        },
+        {
+            "date": 1695630198241,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-14-success.log",
+            "hash": "1c810762f618080be1667205bd93d20608bfe3a72746ab5ccf001168bced05c3"
+        },
+        {
+            "date": 1695652384935,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/successes/phu-2023-25-09-20-success.log",
+            "hash": "d92359251847eb4a422801d8b28be9ed5e66ada9a91498e7b9f52ee28d4406b5"
         }
     ],
     "hashType": "sha256"

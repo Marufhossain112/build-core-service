@@ -1,0 +1,39 @@
+Mon Sep 25 2023 9:2:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No student found.
+Mon Sep 25 2023 9:4:22 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+
+Foreign key constraint failed on the field: `students_academicSemesterId_fkey (index)`
+Mon Sep 25 2023 9:6:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Mon Sep 25 2023 9:8:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No studentSemesterRegistration found.
+Mon Sep 25 2023 9:11:31 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Mon Sep 25 2023 9:14:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No studentSemesterRegistration found.
+Mon Sep 25 2023 9:21:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You have not enrolled on any course yet.
+Mon Sep 25 2023 9:21:46 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Mon Sep 25 2023 9:22:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Mon Sep 25 2023 9:23:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No studentSemesterRegistration found.
+Mon Sep 25 2023 9:25:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Already and ONGOING registration.
+Mon Sep 25 2023 9:28:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started. 
+Mon Sep 25 2023 9:30:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No studentSemesterRegistration found.
+Mon Sep 25 2023 9:31:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No studentSemesterRegistration found.
+Mon Sep 25 2023 9:34:29 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You have not enrolled on any course yet.
+Mon Sep 25 2023 9:35:7 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Mon Sep 25 2023 9:36:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You have not enrolled on any course yet.
+Mon Sep 25 2023 9:36:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Mon Sep 25 2023 9:36:34 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Mon Sep 25 2023 9:36:51 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Mon Sep 25 2023 9:37:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Mon Sep 25 2023 9:38:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Mon Sep 25 2023 9:47:2 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester is already started. 

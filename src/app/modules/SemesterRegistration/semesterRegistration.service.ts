@@ -1,13 +1,17 @@
 import {
+  Course,
+  OfferedCourse,
   SemesterRegistration,
   SemesterRegistrationStatus,
   StudentSemesterRegistration,
+  StudentSemesterRegistrationCourse,
 } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
 import { IEnrollCoursePayload } from './semesterRegistration.interface';
 import { StudentSemesterRegistrationService } from '../StudentSemesterRegistration/studentSemesterRegistration.service';
+import { asyncForEach } from '../../../shared/utils';
 
 const insertIntoDb = async (
   data: SemesterRegistration
@@ -193,7 +197,7 @@ const confirmMyRegistration = async (userId: string) => {
   if (!studentSemesterRegistration) {
     throw new ApiError(httpStatus.NOT_FOUND, "No studentSemesterRegistration found.");
   }
-  if (studentSemesterRegistration.totalCreditsTaken && semesterRegistration.minCredit && semesterRegistration.maxCredit && (studentSemesterRegistration.totalCreditsTaken < semesterRegistration.minCredit || studentSemesterRegistration.totalCreditsTaken < semesterRegistration.maxCredit)) {
+  if (studentSemesterRegistration.totalCreditsTaken && semesterRegistration.minCredit && semesterRegistration.maxCredit && (studentSemesterRegistration.totalCreditsTaken < semesterRegistration.minCredit || studentSemesterRegistration.totalCreditsTaken > semesterRegistration.maxCredit)) {
     throw new ApiError(httpStatus.BAD_REQUEST, `You can only take ${semesterRegistration.minCredit} to ${semesterRegistration.maxCredit} courses.`);
   }
   if (studentSemesterRegistration.totalCreditsTaken === 0) {
@@ -231,7 +235,7 @@ const getMyRegistration = async (userId: string) => {
   });
   return { semesterRegistration, studentSemesterRegistration };
 };
-const startNewSemester = async (id: string) => {
+const startNewSemester = async (id: string): Promise<{ message: string; }> => {
   // console.log(id);
   const semesterRegistration = await prisma.semesterRegistration.findUnique({
     where: { id }, include: { academicSemester: true }
@@ -256,7 +260,73 @@ const startNewSemester = async (id: string) => {
         isCurrent: true
       }
     });
+    const studentSemesterRegistrations = await prisma.studentSemesterRegistration.findMany({
+      where: {
+        semesterRegistration: {
+          id
+        },
+        isConfirmed: true
+      }
+    });
+    // console.log(Array.isArray(studentSemesterRegistration));
+    // console.log(studentSemesterRegistrations);
+    asyncForEach(
+      studentSemesterRegistrations,
+      async (studentReg: StudentSemesterRegistration) => {
+        // console.log(studentReg);
+        const studentSemesterRegistrationCourses = await prisma.studentSemesterRegistrationCourse.findMany({
+          where: {
+            semesterRegistration: {
+              id: studentReg.semesterRegistrationId
+            },
+            student: {
+              id: studentReg.studentId
+            }
+          },
+          include: {
+            offeredCourse: {
+              include: {
+                course: true
+              }
+            }
+          }
+        });
+        // console.log(studentSemesterRegistrationCourses);
+        asyncForEach(
+          studentSemesterRegistrationCourses,
+          async (item: StudentSemesterRegistrationCourse & {
+            offeredCourse: OfferedCourse & {
+              course: Course;
+            };
+          }) => {
+            const isExistEnrolledCourse = await prisma.studentEnrolledCourse.findFirst({
+              where: {
+                studentId: item.studentId,
+                courseId: item.offeredCourse.courseId,
+                academicSemesterId: semesterRegistration.academicSemesterId
+              }
+            });
+            if (isExistEnrolledCourse) {
+              throw new ApiError(httpStatus.BAD_REQUEST, "Student enrollment already exist.");
+            }
+            const enrollCourseData = {
+              studentId: item.studentId,
+              courseId: item.offeredCourse.courseId,
+              academicSemesterId: semesterRegistration.academicSemesterId
+            };
+            if (!isExistEnrolledCourse) {
+              await prisma.studentEnrolledCourse.create({
+                data: enrollCourseData
+              });
+            }
+          }
+        );
+      }
+    );
   });
+  return {
+    message: "Successfully added new semester"
+  };
 };
 export const semesterRegistrationService = {
   insertIntoDb,
