@@ -1,0 +1,102 @@
+Tue Sep 26 2023 6:4:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and hash arguments required
+Tue Sep 26 2023 6:7:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt malformed
+Tue Sep 26 2023 6:7:44 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistration.create()` invocation:
+
+{
+  data: {
+    student: {
+      connect: {
+        id: "6593dbd4-5b2b-4a1d-9f38-80f6b71a2321"
+      }
+    },
+    semesterRegistration: {
+      connect: {
+        id: undefined,
+?       AND?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       OR?: SemesterRegistrationWhereInput[],
+?       NOT?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       startDate?: DateTimeFilter | DateTime,
+?       endDate?: DateTimeFilter | DateTime,
+?       status?: EnumSemesterRegistrationStatusNullableFilter | SemesterRegistrationStatus | Null,
+?       minCredit?: IntFilter | Int,
+?       maxCredit?: IntFilter | Int,
+?       createdAt?: DateTimeFilter | DateTime,
+?       updatedAt?: DateTimeFilter | DateTime,
+?       academicSemesterId?: StringFilter | String,
+?       academicSemester?: AcademicSemesterRelationFilter | AcademicSemesterWhereInput,
+?       offeredCourses?: OfferedCourseListRelationFilter,
+?       OfferedCourseSection?: OfferedCourseSectionListRelationFilter,
+?       offeredCourseClassSchedules?: OfferedCourseClassScheduleListRelationFilter,
+?       studentSemesterRegistrations?: StudentSemesterRegistrationListRelationFilter,
+?       studentSemesterRegistrationCourses?: StudentSemesterRegistrationCourseListRelationFilter
+      }
+    }
+  }
+}
+
+Argument `connect` of type SemesterRegistrationWhereUniqueInput needs at least one of `id` arguments. Available options are listed in green.
+Tue Sep 26 2023 6:11:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ jwt malformed
+Tue Sep 26 2023 6:12:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Tue Sep 26 2023 6:13:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Tue Sep 26 2023 6:13:40 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistration.create()` invocation:
+
+{
+  data: {
+    student: {
+      connect: {
+        id: "6593dbd4-5b2b-4a1d-9f38-80f6b71a2321"
+      }
+    },
+    semesterRegistration: {
+      connect: {
+        id: undefined,
+?       AND?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       OR?: SemesterRegistrationWhereInput[],
+?       NOT?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       startDate?: DateTimeFilter | DateTime,
+?       endDate?: DateTimeFilter | DateTime,
+?       status?: EnumSemesterRegistrationStatusNullableFilter | SemesterRegistrationStatus | Null,
+?       minCredit?: IntFilter | Int,
+?       maxCredit?: IntFilter | Int,
+?       createdAt?: DateTimeFilter | DateTime,
+?       updatedAt?: DateTimeFilter | DateTime,
+?       academicSemesterId?: StringFilter | String,
+?       academicSemester?: AcademicSemesterRelationFilter | AcademicSemesterWhereInput,
+?       offeredCourses?: OfferedCourseListRelationFilter,
+?       OfferedCourseSection?: OfferedCourseSectionListRelationFilter,
+?       offeredCourseClassSchedules?: OfferedCourseClassScheduleListRelationFilter,
+?       studentSemesterRegistrations?: StudentSemesterRegistrationListRelationFilter,
+?       studentSemesterRegistrationCourses?: StudentSemesterRegistrationCourseListRelationFilter
+      }
+    }
+  }
+}
+
+Argument `connect` of type SemesterRegistrationWhereUniqueInput needs at least one of `id` arguments. Available options are listed in green.
+Tue Sep 26 2023 6:14:24 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "offeredCourseId"
+    ],
+    "message": "offeredCourseId is required."
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "offeredCourseSectionId"
+    ],
+    "message": "offeredCourseSectionId is required."
+  }
+]
+Tue Sep 26 2023 6:14:46 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Tue Sep 26 2023 6:20:27 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Tue Sep 26 2023 6:26:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester Registration is not ended yet!
