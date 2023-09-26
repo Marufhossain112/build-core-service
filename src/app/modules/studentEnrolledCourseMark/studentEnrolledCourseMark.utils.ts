@@ -1,3 +1,5 @@
+import { Course, StudentEnrolledCourse } from "@prisma/client";
+
 const studentEnrolledCourseMarkGrade = (marks: number) => {
     let result = {
         grade: '',
@@ -42,6 +44,31 @@ const studentEnrolledCourseMarkGrade = (marks: number) => {
     return result;
 };
 
+const calculateCGPAandGrade = async (payload: (StudentEnrolledCourse & { course: Course; })[]) => {
+    // console.log("payload", payload);
+    let result = {
+        totalCompletedCredit: 0,
+        cgpa: 0
+    };
+    if (payload.length === 0) {
+        result = {
+            totalCompletedCredit: 0,
+            cgpa: 0
+        };
+    }
+    let totalCGPA = 0;
+    let totalCredits = 0;
+    for (const grade of payload) {
+        // console.log("grade part", grade);
+        totalCGPA += grade.point || 0;
+        totalCredits += grade.course.credits || 0;
+        console.log("totalCGPA", totalCGPA);
+        console.log("totalCredits", totalCredits);
+        const avgCGPA = totalCGPA / payload.length;
+        console.log("avgCGPA", avgCGPA);
+    }
+};
 export const StudentEnrolledCourseMarkUtils = {
-    studentEnrolledCourseMarkGrade
+    studentEnrolledCourseMarkGrade,
+    calculateCGPAandGrade
 };

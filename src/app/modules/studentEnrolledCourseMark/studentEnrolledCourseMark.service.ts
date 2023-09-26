@@ -176,6 +176,18 @@ const updateFinalMarks = async (payload: any) => {
             status: StudentEnrolledCourseStatus.COMPLETED
         }
     });
+    const grades = await prisma.studentEnrolledCourse.findMany({
+        where: {
+            student: {
+                id: studentId
+            },
+            status: StudentEnrolledCourseStatus.COMPLETED
+        }, include: {
+            course: true
+        }
+    });
+    await StudentEnrolledCourseMarkUtils.calculateCGPAandGrade(grades);
+
 };
 
 export const StudentEnrolledCourseMarkService = {
