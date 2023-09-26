@@ -3,6 +3,7 @@ import { DefaultArgs, PrismaClientOptions } from "@prisma/client/runtime/library
 import { prisma } from "../../../shared/prisma";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
+import { StudentEnrolledCourseMarkUtils } from "./studentEnrolledCourseMark.utils";
 
 const createStudentEnrolledCourseDefaultMark = async (
     prismaClient: Omit<PrismaClient<PrismaClientOptions, never, DefaultArgs>, "$connect" | "$disconnect" | "$on" | "$transaction" | "$use" | "$extends">, payload: {
@@ -87,7 +88,7 @@ const createStudentEnrolledCourseDefaultMark = async (
 const updateStudentMarks = async (payload: any) => {
     // console.log(payload);
     const { studentId, academicSemesterId, examType, marks, courseId } = payload;
-    let grade = '';
+
     const studentEnrolledCourseMarks = await prisma.studentEnrolledCourseMark.findFirst({
         where: {
             student: {
@@ -103,35 +104,23 @@ const updateStudentMarks = async (payload: any) => {
     if (!studentEnrolledCourseMarks) {
         throw new ApiError(httpStatus.BAD_REQUEST, "Student enrolled marks not found.");
     }
-    if (marks >= 0 && marks <= 39) {
-        grade = "F";
-    }
-    else if (marks >= 40 && marks <= 49) {
-        grade = "D";
-    }
-    else if (marks >= 50 && marks <= 59) {
-        grade = "C";
-    }
-    else if (marks >= 60 && marks <= 69) {
-        grade = "B";
-    }
-    else if (marks >= 70 && marks <= 79) {
-        grade = "A";
-    }
-    else if (marks >= 80 && marks <= 100) {
-        grade = "A+";
-    }
+    const result = StudentEnrolledCourseMarkUtils.studentEnrolledCourseMarkGrade(marks);
     const updateStudentMarks = await prisma.studentEnrolledCourseMark.update({
         where: {
             id: studentEnrolledCourseMarks.id
         }, data: {
-            marks, grade
+            marks, grade: result.grade
         }
     });
     return updateStudentMarks;
 };
+const updateFinalMarks = async (payload: any) => {
+    console.log(payload);
+    // return payload;
+};
 
 export const StudentEnrolledCourseMarkService = {
     createStudentEnrolledCourseDefaultMark,
-    updateStudentMarks
+    updateStudentMarks,
+    updateFinalMarks
 };

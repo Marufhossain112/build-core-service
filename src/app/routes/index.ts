@@ -68,7 +68,6 @@ const moduleRoutes = [
     path: '/student-semester-course-mark',
     routes: StudentEnrolledCourseMarkRoutes,
   },
-
 ];
 
 moduleRoutes.forEach(route => router.use(route.path, route.routes));
