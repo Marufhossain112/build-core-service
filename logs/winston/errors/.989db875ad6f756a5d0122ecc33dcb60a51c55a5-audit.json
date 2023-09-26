@@ -269,6 +269,11 @@
             "date": 1695704762524,
             "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-26-09-11-error.log",
             "hash": "2a98c5172df6c1be1deedf5cf95f9975c8baf2ea55013cb6f3c29dfd7cbbd484"
+        },
+        {
+            "date": 1695708875573,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-26-09-12-error.log",
+            "hash": "31d2dfcdeea2509e14b076b7c4b703a38a556b8dfef5c3bf91afe3a7b671e180"
         }
     ],
     "hashType": "sha256"
