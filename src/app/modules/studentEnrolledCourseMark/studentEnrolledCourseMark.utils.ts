@@ -45,13 +45,8 @@ const studentEnrolledCourseMarkGrade = (marks: number) => {
 };
 
 const calculateCGPAandGrade = async (payload: (StudentEnrolledCourse & { course: Course; })[]) => {
-    // console.log("payload", payload);
-    let result = {
-        totalCompletedCredit: 0,
-        cgpa: 0
-    };
     if (payload.length === 0) {
-        result = {
+        return {
             totalCompletedCredit: 0,
             cgpa: 0
         };
@@ -59,13 +54,13 @@ const calculateCGPAandGrade = async (payload: (StudentEnrolledCourse & { course:
     let totalCGPA = 0;
     let totalCredits = 0;
     for (const grade of payload) {
-        // console.log("grade part", grade);
         totalCGPA += grade.point || 0;
         totalCredits += grade.course.credits || 0;
-        console.log("totalCGPA", totalCGPA);
-        console.log("totalCredits", totalCredits);
         const avgCGPA = totalCGPA / payload.length;
-        console.log("avgCGPA", avgCGPA);
+        return {
+            totalCompletedCredit: totalCredits,
+            cgpa: avgCGPA
+        };
     }
 };
 export const StudentEnrolledCourseMarkUtils = {
