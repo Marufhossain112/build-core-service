@@ -9,6 +9,11 @@ router.post(
   validateRequest(FacultyValidation.create),
   FacultyController.insertIntoDb
 );
+router.post(
+  '/login',
+  validateRequest(FacultyValidation.login),
+  FacultyController.login
+);
 router.get('/:id', FacultyController.getDataById);
 router.post(
   '/:id/assign-courses',

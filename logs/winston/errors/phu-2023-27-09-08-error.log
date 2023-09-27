@@ -1,0 +1,47 @@
+Wed Sep 27 2023 8:19:10 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "password"
+    ],
+    "message": "password is required."
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "email"
+    ],
+    "message": "email is required."
+  }
+]
+Wed Sep 27 2023 8:19:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and salt arguments required
+Wed Sep 27 2023 8:22:29 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+
+Foreign key constraint failed on the field: `students_academicSemesterId_fkey (index)`
+Wed Sep 27 2023 8:43:49 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.room.create()` invocation:
+
+
+Foreign key constraint failed on the field: `rooms_buildingId_fkey (index)`
+Wed Sep 27 2023 8:48:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourse.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_courses_academicDepartmentId_fkey (index)`
+Wed Sep 27 2023 8:50:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and salt arguments required
+Wed Sep 27 2023 8:52:46 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.student.create()` invocation:
+
+
+Foreign key constraint failed on the field: `students_academicSemesterId_fkey (index)`
+Wed Sep 27 2023 8:56:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and salt arguments required
+Wed Sep 27 2023 8:57:42 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ result is not defined
+Wed Sep 27 2023 8:59:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ data and salt arguments required

@@ -14,6 +14,8 @@ import config from '../../../config';
 const insertIntoDb = async (StudentData: Student): Promise<Student> => {
   const saltRounds = 10; // You can adjust the number of rounds for security
   const salt = await bcrypt.genSalt(saltRounds);
+  console.log("studentsalt", salt);
+
   // Hash the user's password with the generated salt
   const hashedPassword = await bcrypt.hash(StudentData.password, salt);
   const result = await prisma.student.create({
@@ -143,22 +145,30 @@ const deleteFromDb = async (id: string) => {
   });
   return result;
 };
-const myCourses = async (authUserId: string) => {
+const myCourses = async (authUserId: string, filter: {
+  courseId?: string | undefined,
+  academicSemesterId?: string | undefined;
+}) => {
   // console.log("MY courses");
-  const currentSemester = await prisma.academicSemester.findFirst({
-    where: {
-      isCurrent: true
-    }
-  });
+  if (!filter.academicSemesterId) {
+    const currentSemester = await prisma.academicSemester.findFirst({
+      where: {
+        isCurrent: true
+      }
+    });
+    filter.academicSemesterId = currentSemester?.id;
+  }
+
+
   // console.log("Current_semester", currentSemester);
   const result = await prisma.studentEnrolledCourse.findMany({
     where: {
       student: {
         studentId: authUserId
       },
-      academicSemester: {
-        id: currentSemester?.id
-      }
+      ...filter
+    }, include: {
+      course: true
     }
   });
   return result;

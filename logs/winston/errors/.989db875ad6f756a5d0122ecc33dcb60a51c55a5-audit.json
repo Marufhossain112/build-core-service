@@ -304,6 +304,21 @@
             "date": 1695773894965,
             "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-27-09-06-error.log",
             "hash": "0b262c201b70abb2ba13c048ec099f7520c7a978370a3e30fe758e2fe32fff9b"
+        },
+        {
+            "date": 1695777417703,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-27-09-07-error.log",
+            "hash": "b6d683c58e14c2c5779df10d664d18a60e1e15e88753f8ea0064b07e8d53144f"
+        },
+        {
+            "date": 1695780031837,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-27-09-08-error.log",
+            "hash": "513add42f14721c85e946745345778172c4d2d2fe3ccab139dc8d73a4de0cb46"
+        },
+        {
+            "date": 1695783612949,
+            "name": "/home/maruf/Error/build-core-service/logs/winston/errors/phu-2023-27-09-09-error.log",
+            "hash": "233c61301b5b8b36e16ef4c695d1c1f53ec4ced23da07ee92ca86ee8e957bc5f"
         }
     ],
     "hashType": "sha256"

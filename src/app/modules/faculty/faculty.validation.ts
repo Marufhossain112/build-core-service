@@ -19,6 +19,9 @@ const create = z.object({
     email: z.string({
       required_error: 'email is required.',
     }),
+    password: z.string({
+      required_error: 'password is required.',
+    }),
     contactNo: z.string({
       required_error: 'contactNo is required.',
     }),
@@ -46,7 +49,18 @@ const assignOrRemoveCoursesValidation = z.object({
     }),
   }),
 });
+const login = z.object({
+  body: z.object({
+    password: z.string({
+      required_error: 'password is required.',
+    }),
+    email: z.string({
+      required_error: 'email is required.',
+    }),
+  }),
+});
 export const FacultyValidation = {
+  login,
   create,
   assignOrRemoveCoursesValidation,
 };

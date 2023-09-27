@@ -5,14 +5,50 @@ import { IPaginationOptions } from '../../../interfaces/pagination';
 import { prisma } from '../../../shared/prisma';
 import { IFacultyFilterRequest } from './faculty.interface';
 import { FacultySearchableFields } from './faculty.constrants';
+import bcrypt from 'bcrypt';
+import { ILoginUser } from '../student/student.interface';
+import ApiError from '../../../errors/ApiError';
+import httpStatus from 'http-status';
+import { jwtHelpers } from '../../../helpers/jwtHelpers';
+import config from '../../../config';
 
 const insertIntoDb = async (FacultyData: Faculty): Promise<Faculty> => {
+  const saltRounds = 10; // You can adjust the number of rounds for security
+  const salt = await bcrypt.genSalt(saltRounds);
+  console.log("faultysalt", salt);
+  // Hash the user's password with the generated salt
+  const hashedPassword = await bcrypt.hash(FacultyData.password, salt);
+  // console.log("hashedPassword", FacultyData.password);
   const result = await prisma.faculty.create({
-    data: FacultyData,
+    data: {
+      ...FacultyData,
+      password: hashedPassword,
+    },
   });
   return result;
 };
-
+const login = async (data: ILoginUser) => {
+  const user = await prisma.faculty.findFirst({
+    where: {
+      email: data?.email,
+    },
+  });
+  const isPasswordMatch = await bcrypt.compare(
+    data.password,
+    user?.password as string
+  );
+  if (!isPasswordMatch) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'Password did not match.');
+  }
+  // create token
+  const payload = { role: user?.role, userId: user?.facultyId };
+  const token = jwtHelpers.createToken(
+    payload,
+    config.jwt.secret as string,
+    config.jwt.expires_in as string
+  );
+  return token;
+};
 const getAllFromDb = async (
   filters: IFacultyFilterRequest,
   options: IPaginationOptions
@@ -54,9 +90,9 @@ const getAllFromDb = async (
     orderBy:
       sortBy && sortOrder
         ? {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            [options.sortBy as any]: options.sortOrder,
-          }
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          [options.sortBy as any]: options.sortOrder,
+        }
         : { createdAt: 'desc' },
   });
   // console.log('I am groot', filters);
@@ -122,4 +158,5 @@ export const FacultyService = {
   getDataById,
   assignCourses,
   removeCourses,
+  login
 };

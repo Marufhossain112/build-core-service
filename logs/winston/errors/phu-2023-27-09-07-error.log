@@ -1,0 +1,12 @@
+Wed Sep 27 2023 7:44:52 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "body",
+      "password"
+    ],
+    "message": "password is required."
+  }
+]
