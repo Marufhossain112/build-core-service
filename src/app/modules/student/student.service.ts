@@ -1,7 +1,7 @@
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { Prisma, Student } from '@prisma/client';
+import { Prisma, SemesterRegistrationStatus, Student, StudentEnrolledCourseStatus } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import { ILoginUser, IStudentFilterRequest } from './student.interface';
 import { StudentSearchableFields } from './student.constrants';
@@ -11,16 +11,17 @@ import httpStatus from 'http-status';
 import { jwtHelpers } from '../../../helpers/jwtHelpers';
 import config from '../../../config';
 
-const insertIntoDb = async (StudentData: Student): Promise<Student> => {
+
+const insertIntoDb = async (Student: Student): Promise<Student> => {
   const saltRounds = 10; // You can adjust the number of rounds for security
   const salt = await bcrypt.genSalt(saltRounds);
   console.log("studentsalt", salt);
 
   // Hash the user's password with the generated salt
-  const hashedPassword = await bcrypt.hash(StudentData.password, salt);
+  const hashedPassword = await bcrypt.hash(Student.password, salt);
   const result = await prisma.student.create({
     data: {
-      ...StudentData,
+      ...Student,
       password: hashedPassword,
     },
     include: {
@@ -171,6 +172,90 @@ const myCourses = async (authUserId: string, filter: {
   });
   return result;
 };
+const myRegCourses = async (authUserId: string) => {
+  // console.log("userId", authUserId);
+  const student = await prisma.student.findFirst({
+    where: {
+      studentId: authUserId
+    }
+  });
+  // console.log("student", student);
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: {
+        in: [
+          SemesterRegistrationStatus.ENDED,
+          SemesterRegistrationStatus.UPCOMING,
+        ]
+      }
+    },
+    include: {
+      academicSemester: true
+    }
+  });
+  // console.log(ongoingOrEndedSemester);
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.NOT_FOUND, "NO semester registration found.");
+  }
+  const studentCompletedCourse = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      status: StudentEnrolledCourseStatus.COMPLETED,
+      student: {
+        id: student?.id
+      }
+    }
+  });
+  console.log("student completed course", studentCompletedCourse);
+
+  const studentCurrentSemesterTakenCourse = await prisma.studentSemesterRegistrationCourse.findMany({
+    where: {
+      student: {
+        id: student?.id
+      },
+      semesterRegistration: {
+        id: semesterRegistration?.id
+      }
+    },
+    include: {
+      offeredCourse: true,
+      offeredCourseSection: true
+    }
+  });
+  // console.log(studentCurrentSemesterTakenCourse);
+  const offeredCourse = await prisma.offeredCourse.findMany({
+    where: {
+      semesterRegistration: {
+        id: semesterRegistration.id
+      },
+      academicDepartment: {
+        id: student?.academicDepartmentId
+      },
+    }, include: {
+      course: {
+        include: {
+          prerequisite: {
+            include: {
+              prerequisite: true
+            }
+          }
+        }
+      },
+      OfferedCourseSection: {
+        include: {
+          offeredCourseClassSchedules: {
+            include: {
+              room: {
+                include: {
+                  building: true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+};
 
 export const StudentService = {
   insertIntoDb,
@@ -179,5 +264,6 @@ export const StudentService = {
   updateToDb,
   deleteFromDb,
   login,
-  myCourses
+  myCourses,
+  myRegCourses
 };

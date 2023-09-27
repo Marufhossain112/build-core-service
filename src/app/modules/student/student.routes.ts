@@ -17,6 +17,9 @@ router.post(
   validateRequest(StudentValidation.login),
   StudentController.login
 );
+router.get('/my-reg-courses',
+  auth(ENUM_USER_ROLE.STUDENT)
+  , StudentController.myRegCourses);
 router.get('/my-courses',
   auth(ENUM_USER_ROLE.STUDENT)
   , StudentController.myCourses);
