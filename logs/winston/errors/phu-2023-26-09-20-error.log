@@ -1,0 +1,5 @@
+Tue Sep 26 2023 20:35:1 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.create()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_class_schedule_offeredCourseSectionId_fkey (index)`

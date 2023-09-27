@@ -1,0 +1,34 @@
+Tue Sep 26 2023 18:48:0 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.faculty.create()` invocation:
+
+
+Foreign key constraint failed on the field: `faculties_academicFacultyId_fkey (index)`
+Tue Sep 26 2023 18:52:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseSection.create()` invocation:
+
+{
+  data: {
+    title: "Section-C",
+    maxCapacity: 30,
+    currentlyEnrolledStudent: 25,
+    offeredCourseId: "d34d769b-51c3-4f81-9f86-d6eaae06722e",
+    classSchedules: [
+    ~~~~~~~~~~~~~~
+      {
+        startTime: "08:00",
+        endTime: "09.00",
+        daysOfWeek: "MONDAY",
+        roomId: "9b35f4af-8466-4816-a31a-5e683516ad1c",
+        facultyId: "d61b3f16-d3a4-41a6-8f35-ebfdc7f61986"
+      }
+    ],
+    semesterRegistrationId: "0747ceab-67d4-44fe-982b-de66444320ef",
+?   id?: String,
+?   createdAt?: DateTime,
+?   updatedAt?: DateTime,
+?   offeredCourseClassSchedules?: OfferedCourseClassScheduleUncheckedCreateNestedManyWithoutOfferedCourseSectionInput,
+?   studentSemesterRegistrationCourses?: StudentSemesterRegistrationCourseUncheckedCreateNestedManyWithoutOfferedCourseSectionInput
+  }
+}
+
+Unknown argument `classSchedules`. Available options are listed in green.
