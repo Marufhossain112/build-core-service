@@ -14,10 +14,12 @@ router.post(
 );
 router.post(
   '/signin',
-  // auth(ENUM_USER_ROLE.STUDENT)
   validateRequest(StudentValidation.login),
   StudentController.login
 );
+router.get('/my-courses',
+  auth(ENUM_USER_ROLE.STUDENT)
+  , StudentController.myCourses);
 router.get('/:id', StudentController.getDataById);
 router.get('/', StudentController.getAllFromDb);
 router.patch(

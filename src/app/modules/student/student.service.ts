@@ -143,6 +143,26 @@ const deleteFromDb = async (id: string) => {
   });
   return result;
 };
+const myCourses = async (authUserId: string) => {
+  // console.log("MY courses");
+  const currentSemester = await prisma.academicSemester.findFirst({
+    where: {
+      isCurrent: true
+    }
+  });
+  // console.log("Current_semester", currentSemester);
+  const result = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      student: {
+        studentId: authUserId
+      },
+      academicSemester: {
+        id: currentSemester?.id
+      }
+    }
+  });
+  return result;
+};
 
 export const StudentService = {
   insertIntoDb,
@@ -150,5 +170,6 @@ export const StudentService = {
   getDataById,
   updateToDb,
   deleteFromDb,
-  login
+  login,
+  myCourses
 };

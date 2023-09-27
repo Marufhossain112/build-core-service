@@ -68,11 +68,23 @@ const deleteFromDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const myCourses = catchAsync(async (req: Request, res: Response) => {
+  const user = (req as any).user;
+  console.log(user);
+  const result = await StudentService.myCourses(user.userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'My courses data fetched successfully.',
+    data: result,
+  });
+});
 export const StudentController = {
   insertIntoDb,
   getAllFromDb,
   getDataById,
   updateToDb,
   deleteFromDb,
-  login
+  login,
+  myCourses
 };
