@@ -19,7 +19,6 @@ const insertIntoDb = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-
 const login = catchAsync(async (req: Request, res: Response) => {
   const result = await FacultyService.login(req.body);
   // console.log('controller', result);
@@ -53,7 +52,6 @@ const getDataById = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
-
 const assignCourses = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
   const result = await FacultyService.assignCourses(id, req.body.courses);
@@ -74,11 +72,26 @@ const removeCourses = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+const myCourses = catchAsync(async (req: Request, res: Response) => {
+  // const { id } = req.params;
+  const user = (req as any).user;
+  // console.log(user);
+  const filter = pick(req.query, ['courseId', 'academicSemesterId']);
+  const result = await FacultyService.myCourses(user, filter);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Fetched my courses successfully.',
+    data: result,
+  });
+});
+
 export const FacultyController = {
   insertIntoDb,
   getAllFromDb,
   getDataById,
   assignCourses,
   removeCourses,
-  login
+  login,
+  myCourses
 };

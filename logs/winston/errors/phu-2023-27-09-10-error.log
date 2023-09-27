@@ -1,0 +1,33 @@
+Wed Sep 27 2023 10:32:35 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course does not exist.
+Wed Sep 27 2023 10:33:9 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.offeredCourseClassSchedule.createMany()` invocation:
+
+
+Foreign key constraint failed on the field: `offered_course_class_schedule_roomId_fkey (index)`
+Wed Sep 27 2023 10:37:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Offered course  already exist.
+Wed Sep 27 2023 10:39:3 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No student found.
+Wed Sep 27 2023 10:46:37 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "body",
+      "courses"
+    ],
+    "message": "Courses is required."
+  }
+]
+Wed Sep 27 2023 10:46:47 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "object",
+    "path": [
+      "body",
+      "courses",
+      0
+    ],
+    "message": "Expected string, received object"
+  }
+]

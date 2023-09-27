@@ -158,8 +158,6 @@ const myCourses = async (authUserId: string, filter: {
     });
     filter.academicSemesterId = currentSemester?.id;
   }
-
-
   // console.log("Current_semester", currentSemester);
   const result = await prisma.studentEnrolledCourse.findMany({
     where: {
