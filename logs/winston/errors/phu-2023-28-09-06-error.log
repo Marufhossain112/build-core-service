@@ -1,0 +1,21 @@
+Thu Sep 28 2023 6:2:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student is already registered.
+Thu Sep 28 2023 6:5:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Thu Sep 28 2023 6:7:20 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Thu Sep 28 2023 6:7:43 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student is already registered.
+Thu Sep 28 2023 6:15:13 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "body",
+      "credits"
+    ],
+    "message": "Expected number, received string"
+  }
+]
+Thu Sep 28 2023 6:15:45 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.courseToPrerequisite.create()` invocation:
+
+
+Unique constraint failed on the fields: (`courseId`,`prerequisiteId`)

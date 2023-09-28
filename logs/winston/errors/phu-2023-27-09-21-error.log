@@ -1,0 +1,92 @@
+Wed Sep 27 2023 21:11:23 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Wed Sep 27 2023 21:13:32 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Student data not found.
+Wed Sep 27 2023 21:13:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistration.create()` invocation:
+
+{
+  data: {
+    student: {
+      connect: {
+        id: "aafef562-527e-40d8-ab8f-ded36edf868f"
+      }
+    },
+    semesterRegistration: {
+      connect: {
+        id: undefined,
+?       AND?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       OR?: SemesterRegistrationWhereInput[],
+?       NOT?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       startDate?: DateTimeFilter | DateTime,
+?       endDate?: DateTimeFilter | DateTime,
+?       status?: EnumSemesterRegistrationStatusNullableFilter | SemesterRegistrationStatus | Null,
+?       minCredit?: IntFilter | Int,
+?       maxCredit?: IntFilter | Int,
+?       createdAt?: DateTimeFilter | DateTime,
+?       updatedAt?: DateTimeFilter | DateTime,
+?       academicSemesterId?: StringFilter | String,
+?       offeredCourseClassSchedules?: OfferedCourseClassScheduleListRelationFilter,
+?       OfferedCourseSection?: OfferedCourseSectionListRelationFilter,
+?       offeredCourses?: OfferedCourseListRelationFilter,
+?       academicSemester?: AcademicSemesterRelationFilter | AcademicSemesterWhereInput,
+?       studentSemesterRegistrations?: StudentSemesterRegistrationListRelationFilter,
+?       studentSemesterRegistrationCourses?: StudentSemesterRegistrationCourseListRelationFilter
+      }
+    }
+  }
+}
+
+Argument `connect` of type SemesterRegistrationWhereUniqueInput needs at least one of `id` arguments. Available options are listed in green.
+Wed Sep 27 2023 21:15:46 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Registration did not start yet.
+Wed Sep 27 2023 21:15:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Registration did not start yet.
+Wed Sep 27 2023 21:16:6 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No semesterRegistration found.
+Wed Sep 27 2023 21:17:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Already and UPCOMING registration.
+Wed Sep 27 2023 21:17:28 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Already and UPCOMING registration.
+Wed Sep 27 2023 21:17:38 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Registration did not start yet.
+Wed Sep 27 2023 21:18:53 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistration.create()` invocation:
+
+{
+  data: {
+    student: {
+      connect: {
+        id: "aafef562-527e-40d8-ab8f-ded36edf868f"
+      }
+    },
+    semesterRegistration: {
+      connect: {
+        id: undefined,
+?       AND?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       OR?: SemesterRegistrationWhereInput[],
+?       NOT?: SemesterRegistrationWhereInput | SemesterRegistrationWhereInput[],
+?       startDate?: DateTimeFilter | DateTime,
+?       endDate?: DateTimeFilter | DateTime,
+?       status?: EnumSemesterRegistrationStatusNullableFilter | SemesterRegistrationStatus | Null,
+?       minCredit?: IntFilter | Int,
+?       maxCredit?: IntFilter | Int,
+?       createdAt?: DateTimeFilter | DateTime,
+?       updatedAt?: DateTimeFilter | DateTime,
+?       academicSemesterId?: StringFilter | String,
+?       offeredCourseClassSchedules?: OfferedCourseClassScheduleListRelationFilter,
+?       OfferedCourseSection?: OfferedCourseSectionListRelationFilter,
+?       offeredCourses?: OfferedCourseListRelationFilter,
+?       academicSemester?: AcademicSemesterRelationFilter | AcademicSemesterWhereInput,
+?       studentSemesterRegistrations?: StudentSemesterRegistrationListRelationFilter,
+?       studentSemesterRegistrationCourses?: StudentSemesterRegistrationCourseListRelationFilter
+      }
+    }
+  }
+}
+
+Argument `connect` of type SemesterRegistrationWhereUniqueInput needs at least one of `id` arguments. Available options are listed in green.
+Wed Sep 27 2023 21:20:1 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Registration did not start yet.
+Wed Sep 27 2023 21:20:4 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Registration did not start yet.
+Wed Sep 27 2023 21:20:25 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ No offeredCourse found.
+Wed Sep 27 2023 21:21:30 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ 
+Invalid `prisma.studentSemesterRegistrationCourse.create()` invocation:
+
+
+Unique constraint failed on the fields: (`semesterRegistrationId`,`studentId`,`offeredCourseId`)
+Wed Sep 27 2023 21:22:58 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Wed Sep 27 2023 21:23:57 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Wed Sep 27 2023 21:24:8 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ You can only take 35 to 40 courses.
+Wed Sep 27 2023 21:42:5 } [PH] error: 🐱‍🏍 globalErrorHandler ~~ Semester Registration is not ended yet!

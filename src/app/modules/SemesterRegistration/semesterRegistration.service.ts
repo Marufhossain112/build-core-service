@@ -6,6 +6,7 @@ import {
   StudentSemesterRegistration,
   StudentSemesterRegistrationCourse,
 } from '@prisma/client';
+import { StudentEnrolledCourseStatus } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import ApiError from '../../../errors/ApiError';
 import httpStatus from 'http-status';
@@ -14,6 +15,7 @@ import { StudentSemesterRegistrationService } from '../StudentSemesterRegistrati
 import { asyncForEach } from '../../../shared/utils';
 import { StudentSemesterPaymentService } from '../StudentSemesterPayment/studentSemesterPayment.service';
 import { StudentEnrolledCourseMarkService } from '../studentEnrolledCourseMark/studentEnrolledCourseMark.service';
+import { SemesterRegistrationUtils } from './semesterRegistration.utils';
 
 const insertIntoDb = async (
   data: SemesterRegistration
@@ -356,9 +358,9 @@ const startNewSemester = async (
     throw new ApiError(httpStatus.BAD_REQUEST, "Semester Registration is not ended yet!");
   }
 
-  // if (semesterRegistration.academicSemester.isCurrent) {
-  //   throw new ApiError(httpStatus.BAD_REQUEST, "Semester is already started!");
-  // }
+  if (semesterRegistration.academicSemester.isCurrent) {
+    throw new ApiError(httpStatus.BAD_REQUEST, "Semester is already started!");
+  }
 
   await prisma.$transaction(async (prismaTransactionClient) => {
     await prismaTransactionClient.academicSemester.updateMany({
@@ -464,6 +466,93 @@ const startNewSemester = async (
     message: "Semester started successfully!"
   };
 };
+
+const myRegCourses = async (authUserId: string) => {
+  // console.log("userId", authUserId);
+  const student = await prisma.student.findFirst({
+    where: {
+      studentId: authUserId
+    }
+  });
+  // console.log("student", student);
+  const semesterRegistration = await prisma.semesterRegistration.findFirst({
+    where: {
+      status: {
+        in: [
+          SemesterRegistrationStatus.ENDED,
+          SemesterRegistrationStatus.UPCOMING,
+        ]
+      }
+    },
+    include: {
+      academicSemester: true
+    }
+  });
+  // console.log(ongoingOrEndedSemester);
+  if (!semesterRegistration) {
+    throw new ApiError(httpStatus.NOT_FOUND, "NO semester registration found.");
+  }
+  const studentCompletedCourse = await prisma.studentEnrolledCourse.findMany({
+    where: {
+      status: StudentEnrolledCourseStatus.COMPLETED,
+      student: {
+        id: student?.id
+      }
+    }
+  });
+  // console.log("student completed course", studentCompletedCourse);
+  const studentCurrentSemesterTakenCourse = await prisma.studentSemesterRegistrationCourse.findMany({
+    where: {
+      student: {
+        id: student?.id
+      },
+      semesterRegistration: {
+        id: semesterRegistration?.id
+      }
+    },
+    include: {
+      offeredCourse: true,
+      offeredCourseSection: true
+    }
+  });
+  // console.log(studentCurrentSemesterTakenCourse);
+  const offeredCourse = await prisma.offeredCourse.findMany({
+    where: {
+      semesterRegistration: {
+        id: semesterRegistration.id
+      },
+      academicDepartment: {
+        id: student?.academicDepartmentId
+      },
+    }, include: {
+      course: {
+        include: {
+          prerequisite: {
+            include: {
+              prerequisite: true
+            }
+          }
+        }
+      },
+      OfferedCourseSection: {
+        include: {
+          offeredCourseClassSchedules: {
+            include: {
+              room: {
+                include: {
+                  building: true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  });
+  const availableCourses = SemesterRegistrationUtils.getAvailableCourses(offeredCourse, studentCurrentSemesterTakenCourse, studentCompletedCourse);
+  return availableCourses;
+};
+
 export const semesterRegistrationService = {
   insertIntoDb,
   updateToDb,
@@ -473,5 +562,6 @@ export const semesterRegistrationService = {
   withdrawFromCourse,
   confirmMyRegistration,
   getMyRegistration,
-  startNewSemester
+  startNewSemester,
+  myRegCourses
 };

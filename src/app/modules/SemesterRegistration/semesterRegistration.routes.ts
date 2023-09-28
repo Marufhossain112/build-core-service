@@ -40,6 +40,9 @@ router.post(
 router.get(
   '/get-my-registration', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.getMyRegistration
 );
+router.get(
+  '/get-my-registration-courses', auth(ENUM_USER_ROLE.STUDENT), semesterRegistrationController.myRegCourses
+);
 router.post(
   '/:id/start-new-semester', auth(ENUM_USER_ROLE.ADMIN), semesterRegistrationController.startNewSemester
 );

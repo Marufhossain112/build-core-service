@@ -95,6 +95,19 @@ const startNewSemester = catchAsync(async (req: Request, res: Response) => {
     data: result,
   });
 });
+
+const myRegCourses = catchAsync(async (req: Request, res: Response) => {
+  const user = (req as any).user;
+  // console.log(user);
+  // const filter = pick(req.query, ['courseId', 'academicSemesterId']);
+  const result = await semesterRegistrationService.myRegCourses(user.userId);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'My registration courses data fetched successfully.',
+    data: result,
+  });
+});
 export const semesterRegistrationController = {
   insertIntoDb,
   updateToDb,
@@ -104,5 +117,6 @@ export const semesterRegistrationController = {
   withdrawFromCourse,
   confirmMyRegistration,
   getMyRegistration,
-  startNewSemester
+  startNewSemester,
+  myRegCourses
 };
