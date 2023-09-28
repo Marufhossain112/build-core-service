@@ -7,26 +7,29 @@ const getAvailableCourses = async (
     const completedCourseId = studentCompletedCourse.map((course: any) => course.courseId);
     // console.log("completedCourseId", completedCourseId);
     const availableCourseList = offeredCourses.filter((offeredCourse: any) => !completedCourseId.includes(offeredCourse.courseId)
-    ).filter((offeredCourse: any) => completedCourseId.includes(offeredCourse.courseId)
     ).filter((course: any) => {
         const preRequisites = course.course.prerequisite;
+        // console.log("check_me", preRequisites);
         if (preRequisites.length === 0) {
             return true;
+            // console.log("Pre com", `${Com}`);
         } else {
             const preRequisitesIds = preRequisites.map((preRequisite: any) => preRequisite.prerequisiteId);
             return preRequisitesIds.every((id: string) => completedCourseId.includes(id));
             // console.log("Pre", res);
+            // console.log("Pre not com", `${notCom}`);
         }
     }).map((course: any) => {
-        const isAlreadyTakenCourse = studentCurrentSemesterTakenCourse.find((c: any) =>
-            c.offeredCourseId === course.id
+        // return course;
+        const isAlreadyTakenCourse = studentCurrentSemesterTakenCourse.find(
+            (c: any) => c.offeredCourseId === course.id
         );
-        // console.log("isAlreadyTakenCourse", isAlreadyTakenCourse);
         if (isAlreadyTakenCourse) {
-            course.offeredCourseSections.map((section: any) => {
-                if (section.id === isAlreadyTakenCourse.offeredCourseId) {
+            course.OfferedCourseSection.map((section: any) => {
+                if (section.id === isAlreadyTakenCourse.offeredCourseSectionId) {
                     section.isTaken = true;
-                } else {
+                }
+                else {
                     section.isTaken = false;
                 }
             });
@@ -34,20 +37,19 @@ const getAvailableCourses = async (
                 ...course,
                 isTaken: true
             };
+            // console.log("kk", course.OfferedCourseSection);
         }
         else {
-            course.offeredCourseSections.map((section: any) => {
+            course.OfferedCourseSection.map((section: any) => {
                 section.isTaken = false;
             });
             return {
                 ...course,
-                isTaken: true
+                isTaken: false
             };
-        }
+        };
     });
-    // console.log("availableCourseList", availableCourseList);
-    // console.log("availableCourseList", availableCourseList);
-    // console.log("existCourseList", existCourseList);
+
     return availableCourseList;
 };
 export const SemesterRegistrationUtils = {
