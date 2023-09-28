@@ -1,7 +1,7 @@
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
-import { Prisma, Student } from '@prisma/client';
+import { Prisma, Student, Building } from '@prisma/client';
 import { prisma } from '../../../shared/prisma';
 import { ILoginUser, IStudentFilterRequest } from './student.interface';
 import { StudentSearchableFields } from './student.constrants';
@@ -172,6 +172,61 @@ const myCourses = async (authUserId: string, filter: {
   });
   return result;
 };
+const getMyCourses = async (authUserId: string, filter: {
+  courseId?: string | undefined,
+  academicSemesterId?: string | undefined;
+}) => {
+  if (!filter.academicSemesterId) {
+    const currentSemester = await prisma.academicSemester.findFirst({
+      where: {
+        isCurrent: true
+      }
+    });
+    filter.academicSemesterId = currentSemester?.id;
+  }
+  const studentEnrolledCourses = await myCourses(authUserId, filter);
+  const studentEnrolledCourseIds = studentEnrolledCourses.map((item) => item.courseId);
+  const result = await prisma.studentSemesterRegistrationCourse.findMany({
+    where: {
+      student: {
+        studentId: authUserId
+      },
+      semesterRegistration: {
+        academicSemester: {
+          id: filter.academicSemesterId
+        }
+      },
+      offeredCourse: {
+        course: {
+          id: {
+            in: studentEnrolledCourseIds
+          }
+        }
+      }
+    },
+    include: {
+      offeredCourse: {
+        include: {
+          course: true
+        }
+      },
+      offeredCourseSection: {
+        include: {
+          offeredCourseClassSchedules: {
+            include: {
+              room: {
+                include: {
+                  building: true
+                }
+              }, faculty: true
+            }
+          }
+        }
+      }
+    }
+  });
+  return result;
+};
 
 
 export const StudentService = {
@@ -181,5 +236,6 @@ export const StudentService = {
   updateToDb,
   deleteFromDb,
   login,
-  myCourses
+  myCourses,
+  getMyCourses
 };
